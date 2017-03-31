@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
-import {StyleSheet,Text,View} from 'react-native';
+import {StyleSheet,Text,Image} from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import homeImage from './homeImage.jpg';
 
 class home extends Component {
   render() {
     return (
-      <View style={styles.container}>
+      <Image source={homeImage}
+        style={styles.container}>
         <Text style={styles.welcome} onPress={() => Actions.login()} >
-          home Screen
+          Welcome the React-native App
         </Text>
-      </View>
+      </Image>
     );
   }
 }
@@ -19,7 +21,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#bb0000',
+    width: undefined,
+    height: undefined,
+    backgroundColor:'transparent',
   },
   welcome: {
     fontSize: 20,

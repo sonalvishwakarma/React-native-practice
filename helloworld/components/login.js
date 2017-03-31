@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import {StyleSheet,Text,View} from 'react-native';
+import {StyleSheet,Text,Image} from 'react-native';
 import HandleLogin from './HandleLogin.js';
 import { Actions } from 'react-native-router-flux';
+import img1 from './images.jpg';
 
 class login extends Component {
 
@@ -27,7 +28,7 @@ class login extends Component {
 
   render(){
     return (
-      <View style={styles.container}>
+      <Image source={img1} style={styles.container}>
         <HandleLogin
           handleEmail = {this.handleEmail}
           handlePassword = {this.handlePassword}
@@ -37,8 +38,7 @@ class login extends Component {
        <Text style={styles.welcome}  onPress={() => Actions.dashboard()} >
           Click here
         </Text>
-      </View>
-
+      </Image>
     );
   }
 }
@@ -48,13 +48,15 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#bb0000',
+    width: undefined,
+    height: undefined,
+    backgroundColor:'transparent',
   },
     welcome: {
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
-    color: '#ffffff',
+    color: 'grey',
   }
 });
 

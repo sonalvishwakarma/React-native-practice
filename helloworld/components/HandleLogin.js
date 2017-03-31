@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import {StyleSheet,Text,TextInput,View,TouchableHighlight} from 'react-native';
+import {StyleSheet,Text,TextInput,Image,TouchableHighlight} from 'react-native';
+import img1 from './images.jpg';
 
 export default HandleLogin = (props) => {
    return (
-      <View style = {styles.container}>
+      <Image source={img1} style={styles.container}>
         <TextInput underlineColorAndroid='transparent'
           style = {styles.input}
           placeholder = 'Email'
@@ -23,7 +24,7 @@ export default HandleLogin = (props) => {
              Submit
           </Text>
         </TouchableHighlight>
-      </View>
+      </Image>
    )
 }
 
@@ -32,7 +33,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#bb0000',
+    width: undefined,
+    height: undefined,
+    backgroundColor:'transparent',
   },
   welcome: {
     fontSize: 20,
