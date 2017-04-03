@@ -1,9 +1,21 @@
 import React, { Component } from 'react';
 import {StyleSheet,Text,TextInput,View,TouchableHighlight} from 'react-native';
 
-export default HandleLogin = (props) => {
+export default HandleSignUp = (props) => {
   return (
-    <View>
+    <View>       
+      <TextInput underlineColorAndroid='transparent'
+        style = {styles.input}
+        placeholder = 'First Name'
+        autoCapitalize = 'none'
+        onChangeText = {props.handleFirstName}
+      />
+      <TextInput underlineColorAndroid='transparent'
+        style = {styles.input}
+        placeholder = 'Last Name'
+        autoCapitalize = 'none'
+        onChangeText = {props.handleLastName}
+      />
       <TextInput underlineColorAndroid='transparent'
         style = {styles.input}
         placeholder = 'Email'
@@ -16,14 +28,20 @@ export default HandleLogin = (props) => {
         autoCapitalize = 'none'
         onChangeText = {props.handlePassword}
       />
+       <TextInput underlineColorAndroid='transparent' secureTextEntry={true}
+        style = {styles.input}
+        placeholder = 'Confirm Password'
+        autoCapitalize = 'none'
+        onChangeText = {props.handleConfirmPassword}
+      />
       <TouchableHighlight
         style = {styles.submit}
-        onPress = { () => props.login(props.email, props.password)}>
+        onPress = { () => props.signUp(props.fname, props.lname, props.email, props.password, props.confirmPassword)}>
         <Text>
           Submit
         </Text>
-      </TouchableHighlight> 
-    </View>
+      </TouchableHighlight>
+    </View>  
   )
 }
 
@@ -48,8 +66,7 @@ const styles = StyleSheet.create({
     width: 250,
     borderColor: 'grey',
     borderWidth: 1,
-    color: 'white',
-
+    color:'white'
   },
   submit: {
     backgroundColor: 'grey',

@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import {StyleSheet,Text,Image} from 'react-native';
 import HandleLogin from './HandleLogin.js';
 import { Actions } from 'react-native-router-flux';
-import img1 from './images.jpg';
+import homeImage from './homeImage.jpg';
+var userApi = 'https://api.myjson.com/bins/o4zz3';
+var users = [];
 
 class login extends Component {
 
   constructor(props) {
     super(props);
+    this.getUser();
     this.state = {
       email: '',
       password : ''
@@ -22,22 +25,42 @@ class login extends Component {
     this.setState({password : text})
   }
 
+  getUser = () => {
+    fetch(userApi)
+    .then( (response) => {
+      return response.json()
+    })   
+    .then( (json) => {
+      users = json
+    });
+  }
+
   login = () => {
-    alert('email: ' + this.state.email + ' password: ' + this.state.password)
+
+    if(this.state.email !== '' && this.state.password !== '' )
+    {
+      for (var val of users) {
+
+        if(this.state.email === val.EmailID && this.state.password === val.Password)
+        {
+          alert("Successfully logged in");
+          Actions.dashboard()
+        }
+      } 
+    }
+    else if(this.state.email === '' && this.state.password === '' ){
+      alert("Oops! You are not providing crendentials, please enter email and password");
+    }
   }
 
   render(){
     return (
-      <Image source={img1} style={styles.container}>
+      <Image source={homeImage} style={styles.container}>
         <HandleLogin
           handleEmail = {this.handleEmail}
           handlePassword = {this.handlePassword}
           login = {this.login}
         />
-
-       <Text style={styles.welcome}  onPress={() => Actions.dashboard()} >
-          Click here
-        </Text>
       </Image>
     );
   }
