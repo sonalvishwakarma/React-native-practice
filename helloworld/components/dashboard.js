@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {StyleSheet,Text,View} from 'react-native';
 
-class dashboard extends Component {
+class Dashboard extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -27,4 +27,5 @@ const styles = StyleSheet.create({
     color: '#ffffff',
   },
 });
-export default dashboard;
+
+export default Dashboard;

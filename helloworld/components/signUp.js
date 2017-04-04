@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import {StyleSheet,Text,Image} from 'react-native';
+import t from 'tcomb-form';
 import HandleSignUp from './HandleSignUp.js';
 import { Actions } from 'react-native-router-flux';
 import homeImage from './homeImage.jpg';
+
 var userApi = 'https://api.myjson.com/bins/o4zz3';
 var users = [];
 
@@ -20,6 +22,7 @@ class signUp extends Component {
       confirmPassword : ''
     };
   }
+
 
   handleFirstName = (text) => {
     this.setState({fname : text})
@@ -53,63 +56,64 @@ class signUp extends Component {
 
   signUp = () => {
 
-    if(this.state.fname !== '' && this.state.lname !== '' && this.state.email !== '' && this.state.password !== '' )
-    {
-      if(this.state.password === this.state.confirmPassword){
+      {/*    if(this.state.fname !== '' && this.state.lname !== '' && this.state.email !== '' && this.state.password !== '' )
+      {
+        if(this.state.password === this.state.confirmPassword){
 
-        users.push({
-          "UserID":  users.length + 1,
-          "FirstName": this.state.fname,
-          "LastName": this.state.lname,
-          "EmailID": this.state.email,
-          "Password": this.state.password,
-          "ContactNo": "",
-          "Address1": "",
-          "City": "",
-          "zip": ""
-        })
+          users.push({
+            "UserID":  users.length + 1,
+            "FirstName": this.state.fname,
+            "LastName": this.state.lname,
+            "EmailID": this.state.email,
+            "Password": this.state.password,
+            "ContactNo": "",
+            "Address1": "",
+            "City": "",
+            "zip": ""
+          })
 
-        fetch(userApi, {  
-          method: 'PUT',
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(users)
-        }).then(function(res)
-        {
-          return res.json()
-          .then(function(json) {  
+          fetch(userApi, {  
+            method: 'PUT',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({users})
+          }).then(function(res)
+          {
+            return res.json()
+            .then(function(json) {  
+              console.log(json,'json')
+            }.bind(this))
+          }.bind(this));
+          Actions.dashboard()
+          alert("Successfully Sign in")
+        }
+        else if(this.state.password !== this.state.confirmPassword) {
+          alert("password and confirm password do not match.");
+        }
+      }
 
-          }.bind(this))
-        }.bind(this));
-        Actions.dashboard()
+      else{
+        alert("Please enter details");
+      }*/}
+        Actions.Dashboard()
         alert("Successfully Sign in")
-      }
-      else if(this.state.password !== this.state.confirmPassword) {
-        alert("password and confirm password do not match.");
-      }
     }
-
-    else{
-      alert("Please enter details");
-    }
-
-  }
 
   render(){
     return (
-            <Image source={homeImage} style={styles.container}>
-            <HandleSignUp
-            handleFirstName = {this.handleFirstName}
-            handleLastName = {this.handleLastName}
-            handleEmail = {this.handleEmail}
-            handlePassword = {this.handlePassword}
-            handleConfirmPassword = {this.handleConfirmPassword}
-            signUp = {this.signUp}
-            />
-            </Image>
-            );
+      <Image source={homeImage} style={styles.container}>
+        <HandleSignUp
+          handleFirstName = {this.handleFirstName}
+          handleLastName = {this.handleLastName}
+          handleEmail = {this.handleEmail}
+          handlePassword = {this.handlePassword}
+          handleConfirmPassword = {this.handleConfirmPassword}
+          signUp = {this.signUp}
+        />
+      </Image>
+    );
   }
 }
 

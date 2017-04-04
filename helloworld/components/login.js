@@ -44,7 +44,7 @@ class login extends Component {
         if(this.state.email === val.EmailID && this.state.password === val.Password)
         {
           alert("Successfully logged in");
-          Actions.dashboard()
+          Actions.Dashboard()
         }
       } 
     }
