@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import {StyleSheet,Text,Image} from 'react-native';
-import HandleLogin from './HandleLogin.js';
+import HandleLogin from '../components/HandleLogin.js';
 import { Actions } from 'react-native-router-flux';
-import homeImage from './homeImage.jpg';
+import homeImage from '../components/homeImage.jpg';
+  
 var userApi = 'https://api.myjson.com/bins/o4zz3';
 var users = [];
 

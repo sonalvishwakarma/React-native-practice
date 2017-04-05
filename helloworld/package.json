@@ -7,11 +7,15 @@
     "test": "jest"
   },
   "dependencies": {
+    "install": "^0.8.8",
+    "npm": "^4.4.4",
     "react": "15.4.2",
     "react-native": "0.42.3",
+    "react-native-camera": "git+https://github.com/lwansbrough/react-native-camera.git",
     "react-native-router-flux": "^3.38.0",
     "react-redux": "^5.0.3",
     "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0",
     "tcomb": "^3.2.20"
   },
   "devDependencies": {

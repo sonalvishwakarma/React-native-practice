@@ -3,7 +3,7 @@ import {StyleSheet,Text,Image,TouchableHighlight} from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import homeImage from './homeImage.jpg';
 
-class home extends Component {
+class mainApp extends Component {
   render() {
     return (
       <Image source={homeImage}
@@ -11,16 +11,21 @@ class home extends Component {
         <Text style={styles.welcome} >
           Welcome the React-native App
         </Text>
-          <TouchableHighlight style={styles.button} onPress={() => Actions.login()}  underlayColor='midnightblue'>
-            <Text style={styles.welcome}>
-              Login
-            </Text>
-          </TouchableHighlight>
-          <TouchableHighlight style={styles.button} onPress={() => Actions.signUp()}  underlayColor='midnightblue'>
-            <Text style={styles.welcome}>
-              SignUp
-            </Text>
-          </TouchableHighlight>
+        <TouchableHighlight style={styles.button} onPress={() => Actions.login()}  underlayColor='midnightblue'>
+          <Text style={styles.welcome}>
+            Login
+          </Text>
+        </TouchableHighlight>
+        <TouchableHighlight style={styles.button} onPress={() => Actions.signUp()}  underlayColor='midnightblue'>
+          <Text style={styles.welcome}>
+            SignUp
+          </Text>
+        </TouchableHighlight>
+        <TouchableHighlight style={styles.button} onPress={() => Actions.Dashboard()}  underlayColor='midnightblue'>
+          <Text style={styles.welcome}>
+            Dashborad
+          </Text>
+        </TouchableHighlight>
       </Image> 
     );
   }
@@ -47,4 +52,4 @@ const styles = StyleSheet.create({
     borderColor: 'transparent'
   }
 });
-export default home;
+export default mainApp;
