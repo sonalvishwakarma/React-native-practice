@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import {StyleSheet,Text,Image,TouchableHighlight} from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import homeImage from './homeImage.jpg';
+import homeImage from '../img/./homeImage.jpg';
 
-class mainApp extends Component {
+class Home extends Component {
   render() {
     return (
       <Image source={homeImage}
@@ -21,7 +21,7 @@ class mainApp extends Component {
             SignUp
           </Text>
         </TouchableHighlight>
-        <TouchableHighlight style={styles.button} onPress={() => Actions.Dashboard()}  underlayColor='midnightblue'>
+        <TouchableHighlight style={styles.button} onPress={() => Actions.dashboard()}  underlayColor='midnightblue'>
           <Text style={styles.welcome}>
             Dashborad
           </Text>
@@ -52,4 +52,4 @@ const styles = StyleSheet.create({
     borderColor: 'transparent'
   }
 });
-export default mainApp;
+export default Home;

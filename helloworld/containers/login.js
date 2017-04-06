@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import {StyleSheet,Text,Image} from 'react-native';
-import HandleLogin from '../components/HandleLogin.js';
 import { Actions } from 'react-native-router-flux';
-import homeImage from '../components/homeImage.jpg';
+import HandleLogin from './handleLogin.js';
+import homeImage from '../img/./homeImage.jpg';
   
 var userApi = 'https://api.myjson.com/bins/o4zz3';
 var users = [];
 
-class login extends Component {
+class Login extends Component {
 
   constructor(props) {
     super(props);
@@ -45,7 +45,7 @@ class login extends Component {
         if(this.state.email === val.EmailID && this.state.password === val.Password)
         {
           alert("Successfully logged in");
-          Actions.Dashboard()
+          Actions.dashboard()
         }
       } 
     }
@@ -84,4 +84,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default login;
+export default Login;

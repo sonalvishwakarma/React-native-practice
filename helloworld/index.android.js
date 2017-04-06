@@ -1,12 +1,6 @@
-/**
- * Sample React Native App
- * https://git-hub.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {AppRegistry,StyleSheet,Text,View} from 'react-native';
-import App from './app/containers/app.js';
+import App from './containers/app.js';
 
 export default class helloworld extends Component {
   render() {

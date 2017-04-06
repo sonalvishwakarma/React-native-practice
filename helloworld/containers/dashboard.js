@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {StyleSheet,Text,View, TouchableHighlight,Actions} from 'react-native';
+import {StyleSheet,Text,View, TouchableHighlight} from 'react-native';
+import {Actions} from 'react-native-router-flux';
 
 class Dashboard extends Component {
 
@@ -7,15 +8,16 @@ class Dashboard extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
+          Components
         </Text>
-        <TouchableHighlight style={styles.button} onPress={() => Actions.Asyncstorage()} underlayColor='midnightblue'>
+        <TouchableHighlight style={styles.button} onPress={() => Actions.listView()} underlayColor='midnightblue'>
           <Text style={styles.welcome}>
-            AsyncStorage
+            List View
           </Text>
         </TouchableHighlight>
-        <TouchableHighlight style={styles.button} underlayColor='midnightblue'>
+        <TouchableHighlight style={styles.button} onPress={() => Actions.mapView()} underlayColor='midnightblue'>
           <Text style={styles.welcome}>
-            Picker
+            Map View
           </Text>
         </TouchableHighlight>
         <TouchableHighlight style={styles.button} underlayColor='midnightblue'>
@@ -25,7 +27,7 @@ class Dashboard extends Component {
         </TouchableHighlight>
         <TouchableHighlight style={styles.button} underlayColor='midnightblue'>
           <Text style={styles.welcome}>
-            Geoloction
+            Geolocation
           </Text>
         </TouchableHighlight>
         <TouchableHighlight style={styles.button} underlayColor='midnightblue'>

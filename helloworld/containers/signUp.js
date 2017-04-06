@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import {StyleSheet,Text,Image} from 'react-native';
-import t from 'tcomb-form';
-import HandleSignUp from '../components/HandleSignUp.js';
+import HandleSignUp from './handleSignUp.js';
 import { Actions } from 'react-native-router-flux';
-import homeImage from '../components/homeImage.jpg';
+import homeImage from '../img/./homeImage.jpg';
 
 var userApi = 'https://api.myjson.com/bins/o4zz3';
 var users = [];
 
-class signUp extends Component {
+class SignUp extends Component {
 
   constructor(props) {
     super(props);
@@ -22,7 +21,6 @@ class signUp extends Component {
       confirmPassword : ''
     };
   }
-
 
   handleFirstName = (text) => {
     this.setState({fname : text})
@@ -97,8 +95,8 @@ class signUp extends Component {
       else{
         alert("Please enter details");
       }*/}
-        Actions.Dashboard()
-        alert("Successfully Sign in")
+      Actions.dashboard()
+      alert("Successfully Sign in")
     }
 
   render(){
@@ -134,4 +132,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default signUp;
+export default SignUp;
