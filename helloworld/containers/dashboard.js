@@ -1,70 +1,59 @@
 import React, { Component } from 'react';
-import {StyleSheet,Text,View, TouchableHighlight} from 'react-native';
+import {StyleSheet,Text,View, Image,TouchableHighlight,AsyncStorage} from 'react-native';
 import {Actions} from 'react-native-router-flux';
+import Profile from './profile.js';
+import homeImage from '../img/./homeImage.jpg';
 
 class Dashboard extends Component {
 
+  constructor(props){
+    super(props);
+  }
+  
+  componentDidMount = () => {
+
+    if(AsyncStorage.getItem('loggedUser')){
+      Actions.dashboard()
+    }
+    else{
+      Actions.home()
+    }
+  }
+
+  logout = () => {
+    AsyncStorage.removeItem('loggedUser')
+    if(AsyncStorage.getItem('loggedUser') !== ''){
+      alert('Successfully logout')
+      Actions.home()
+    }
+  }
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Components
-        </Text>
-        <TouchableHighlight style={styles.button} onPress={() => Actions.listView()} underlayColor='midnightblue'>
+      <Image source={homeImage} style={styles.container}>
+        <TouchableHighlight style={styles.button} onPress={() => Actions.profile()} >
           <Text style={styles.welcome}>
-            List View
+            Profile
           </Text>
         </TouchableHighlight>
-        <TouchableHighlight style={styles.button} onPress={() => Actions.mapView()} underlayColor='midnightblue'>
+        <TouchableHighlight style={styles.button} onPress={this.logout} >
           <Text style={styles.welcome}>
-            Map View
+            Logout
           </Text>
         </TouchableHighlight>
-        <TouchableHighlight style={styles.button} underlayColor='midnightblue'>
-          <Text style={styles.welcome}>
-            CameraRoll
-          </Text>
-        </TouchableHighlight>
-        <TouchableHighlight style={styles.button} underlayColor='midnightblue'>
-          <Text style={styles.welcome}>
-            Geolocation
-          </Text>
-        </TouchableHighlight>
-        <TouchableHighlight style={styles.button} underlayColor='midnightblue'>
-          <Text style={styles.welcome}>
-            NetInfo
-          </Text>
-        </TouchableHighlight>
-        <TouchableHighlight style={styles.button} underlayColor='midnightblue'>
-          <Text style={styles.welcome}>
-            ToastAndroid
-          </Text>
-        </TouchableHighlight>
-        <TouchableHighlight style={styles.button} underlayColor='midnightblue'>
-          <Text style={styles.welcome}>
-            Switch
-          </Text>
-        </TouchableHighlight>
-        <TouchableHighlight style={styles.button} underlayColor='midnightblue'>
-          <Text style={styles.welcome}>
-            StatusBar
-          </Text>
-        </TouchableHighlight> 
-        <TouchableHighlight style={styles.button} underlayColor='midnightblue'>
-          <Text style={styles.welcome}>
-            ProgressBarAndroid
-          </Text>
-        </TouchableHighlight>
-      </View>
+      </Image>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
+   container: {
     flex: 1,
+    justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#bb0000',
+    width: undefined,
+    height: undefined,
+    backgroundColor:'transparent',
   },
   welcome: {
     fontSize: 20,

@@ -49,12 +49,13 @@ class SignUp extends Component {
     })   
     .then( (json) => {
       users = json
+      console.log(users)
     });
   }
 
   signUp = () => {
 
-      {/*    if(this.state.fname !== '' && this.state.lname !== '' && this.state.email !== '' && this.state.password !== '' )
+    if(this.state.fname !== '' && this.state.lname !== '' && this.state.email !== '' && this.state.password !== '' )
       {
         if(this.state.password === this.state.confirmPassword){
 
@@ -76,7 +77,7 @@ class SignUp extends Component {
               'Accept': 'application/json',
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify({users})
+            body: JSON.stringify(users)
           }).then(function(res)
           {
             return res.json()
@@ -84,7 +85,7 @@ class SignUp extends Component {
               console.log(json,'json')
             }.bind(this))
           }.bind(this));
-          Actions.dashboard()
+          Actions.login()
           alert("Successfully Sign in")
         }
         else if(this.state.password !== this.state.confirmPassword) {
@@ -94,7 +95,7 @@ class SignUp extends Component {
 
       else{
         alert("Please enter details");
-      }*/}
+      }
       Actions.dashboard()
       alert("Successfully Sign in")
     }

@@ -7,7 +7,7 @@ var array = [
   { name : "Aarti"},
   { name : "Anshuska"},
   { name : "Tammana"},
-  { name : "Shilpi"}
+  { name : "Soniya"}
 ]
 
 class ListViewC extends Component {
