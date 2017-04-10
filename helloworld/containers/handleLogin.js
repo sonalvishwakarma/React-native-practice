@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     width: 250,
     borderColor: 'grey',
     borderWidth: 1,
-    color: 'white',
+    color: 'black',
 
   },
   submit: {

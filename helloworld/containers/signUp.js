@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import {StyleSheet,Text,Image} from 'react-native';
+import {StyleSheet,Text,Image, DatePickerAndroid} from 'react-native';
 import HandleSignUp from './handleSignUp.js';
 import { Actions } from 'react-native-router-flux';
-import homeImage from '../img/./homeImage.jpg';
+import homeImage from '../img/./baseImage.jpg';
+import DatePicker from 'react-native-datepicker';
+
 
 var userApi = 'https://api.myjson.com/bins/o4zz3';
 var users = [];
@@ -18,7 +20,8 @@ class SignUp extends Component {
       lname : '',
       email: '',
       password : '',
-      confirmPassword : ''
+      confirmPassword : '',
+      dob : ''
     };
   }
 
@@ -56,49 +59,49 @@ class SignUp extends Component {
   signUp = () => {
 
     if(this.state.fname !== '' && this.state.lname !== '' && this.state.email !== '' && this.state.password !== '' )
-      {
-        if(this.state.password === this.state.confirmPassword){
+    {
+      if(this.state.password === this.state.confirmPassword){
 
-          users.push({
-            "UserID":  users.length + 1,
-            "FirstName": this.state.fname,
-            "LastName": this.state.lname,
-            "EmailID": this.state.email,
-            "Password": this.state.password,
-            "ContactNo": "",
-            "Address1": "",
-            "City": "",
-            "zip": ""
-          })
+        users.push({
+          "UserID":  users.length + 1,
+          "FirstName": this.state.fname,
+          "LastName": this.state.lname,
+          "EmailID": this.state.email,
+          "Password": this.state.password,
+          "ContactNo": "",
+          "Address1": "",
+          "City": "",
+          "zip": ""
+        })
 
-          fetch(userApi, {  
-            method: 'PUT',
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(users)
-          }).then(function(res)
-          {
-            return res.json()
-            .then(function(json) {  
-              console.log(json,'json')
-            }.bind(this))
-          }.bind(this));
-          Actions.login()
-          alert("Successfully Sign in")
-        }
-        else if(this.state.password !== this.state.confirmPassword) {
-          alert("password and confirm password do not match.");
-        }
+        fetch(userApi, {  
+          method: 'PUT',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(users)
+        }).then(function(res)
+        {
+          return res.json()
+          .then(function(json) {  
+            console.log(json,'json')
+          }.bind(this))
+        }.bind(this));
+        Actions.login()
+        alert("Successfully Sign in")
       }
-
-      else{
-        alert("Please enter details");
+      else if(this.state.password !== this.state.confirmPassword) {
+        alert("password and confirm password do not match.");
       }
-      Actions.dashboard()
-      alert("Successfully Sign in")
     }
+
+    else{
+      alert("Please enter details");
+    }
+    Actions.dashboard()
+    alert("Successfully Sign in")
+  }
 
   render(){
     return (

@@ -1,25 +1,56 @@
 import React, { Component } from 'react';
-import {StyleSheet,Text,TextInput,View,TouchableHighlight} from 'react-native';
+import {StyleSheet,Text,TextInput,View,TouchableHighlight,ScrollView} from 'react-native';
+import MyDatePicker from '../components/./datePicker.js';
 
 export default HandleProfile = (props) => {
   return (
     <View>
-      <TextInput underlineColorAndroid='transparent'
-        style = {styles.input}
-        autoCapitalize = 'none'
-      />
-      <TextInput underlineColorAndroid='transparent'
-        style = {styles.input}
-        autoCapitalize = 'none'
-      />
-      <TextInput underlineColorAndroid='transparent'
-        style = {styles.input}
-        autoCapitalize = 'none'
-      />
-      <TextInput underlineColorAndroid='transparent' secureTextEntry={true}
-        style = {styles.input}
-        autoCapitalize = 'none'
-      />
+      <ScrollView>
+        <Text>First Name</Text>
+        <TextInput underlineColorAndroid='transparent' 
+          style = {styles.input} 
+          autoCapitalize = 'none'
+        />
+
+        <Text>Last Name</Text>
+        <TextInput underlineColorAndroid='transparent'
+          style = {styles.input}
+          autoCapitalize = 'none'
+        />
+
+        <Text>Email</Text>
+        <TextInput underlineColorAndroid='transparent'
+          style = {styles.input}
+          autoCapitalize = 'none'
+        />
+
+        <Text>Password</Text>
+        <TextInput underlineColorAndroid='transparent'
+          style = {styles.input}
+          autoCapitalize = 'none'
+        />
+         <Text>Date of Birth</Text>
+        <MyDatePicker/>
+
+        <Text>Contact No</Text>
+        <TextInput underlineColorAndroid='transparent'
+          style = {styles.input}
+          autoCapitalize = 'none'
+        />
+
+        <Text>Address</Text>
+        <TextInput underlineColorAndroid='transparent'
+          style = {styles.input}
+          autoCapitalize = 'none'
+        />
+
+        <Text>City</Text>
+        <TextInput underlineColorAndroid='transparent'
+          style = {styles.input}
+          autoCapitalize = 'none'
+        />
+      </ScrollView> 
+  
       <TouchableHighlight
         style = {styles.submit}>
         <Text>
@@ -38,6 +69,8 @@ const styles = StyleSheet.create({
     width: undefined,
     height: undefined,
     backgroundColor:'transparent',
+    paddingTop:50,
+    marginTop: 50,
   },
   welcome: {
     fontSize: 20,

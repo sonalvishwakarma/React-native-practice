@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import {StyleSheet,Text,Image,AsyncStorage} from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import HandleProfile from './handleProfile.js';
-import homeImage from '../img/./homeImage.jpg';
+import homeImage from '../img/./baseImage.jpg';
+
+var loggedprofile;
 
 class Profile extends Component {
 
@@ -13,25 +15,23 @@ class Profile extends Component {
     }
   }
       
-   componentDidMount = () => {
-    AsyncStorage.getItem('loggedUser').then((value) => {
-      console.log(value, 'valueppp')
+  componentDidMount = () => {
+   AsyncStorage.getItem('loggedUser').then((value) => {
+      loggedprofile = JSON.parse(value);
+      this.setState({user : loggedprofile})
+      console.log(loggedprofile, 'loggedprofile')
     });
-
-    if(AsyncStorage.getItem('loggedUser')){
-      Actions.dashboard()
-    }
-    else{
-      Actions.home()
-    }
-  }
+  } 
 
   render(){
     return (
       <Image source={homeImage} style={styles.container}>
         <HandleProfile/>
+        <Text>
+          {this.state.user.FirstName}
+        </Text>
       </Image>
-    );
+    );         
   }
 }
 
@@ -43,6 +43,8 @@ const styles = StyleSheet.create({
     width: undefined,
     height: undefined,
     backgroundColor:'transparent',
+    paddingTop:50,
+    marginTop: 50,
   },
   welcome: {
     fontSize: 20,

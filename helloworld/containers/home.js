@@ -4,8 +4,15 @@ import { Actions } from 'react-native-router-flux';
 import homeImage from '../img/./homeImage.jpg';
 
 class Home extends Component {
-  
- 
+
+  componentDidMount = () => {
+    if(AsyncStorage.getItem('loggedUser')){
+        Actions.dashboard()
+    }
+    else{
+      Actions.home()
+    }
+  }
 
   render() {
     return (

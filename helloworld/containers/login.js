@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import {StyleSheet,Text,Image,AsyncStorage} from 'react-native';
+import {StyleSheet,Text,Image,AsyncStorage, ActivityIndicator} from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import HandleLogin from './handleLogin.js';
-import homeImage from '../img/./homeImage.jpg';
-  
+import homeImage from '../img/./baseImage.jpg';
+import MyActivityIndicator from '../components/./activityIndicator.js';
+
 var userApi = 'https://api.myjson.com/bins/o4zz3';
 var users = [];
 
@@ -36,6 +37,7 @@ class Login extends Component {
     });
   }
 
+
   login = () => {
 
     if(this.state.email !== '' && this.state.password !== '' )
@@ -44,7 +46,8 @@ class Login extends Component {
 
         if(this.state.email === val.EmailID && this.state.password === val.Password)
         {
-          AsyncStorage.setItem('loggedUser', val );
+          AsyncStorage.setItem('loggedUser', JSON.stringify(val) );
+          this.setState({'loggedUser' : val})
           alert("Successfully logged in");
           Actions.dashboard()
         }
@@ -53,6 +56,10 @@ class Login extends Component {
     else if(this.state.email === '' && this.state.password === '' ){
       alert("Oops! You are not providing credentials, please enter email and password");
     }
+  }
+
+  indicator = () => {
+    <MyActivityIndicator/>
   }
 
   render(){
@@ -82,7 +89,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     margin: 10,
     color: 'grey',
-  }
+  },
+  activityIndicator: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 80
+   }
 });
 
 export default Login;

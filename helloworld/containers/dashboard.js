@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {StyleSheet,Text,View, Image,TouchableHighlight,AsyncStorage} from 'react-native';
 import {Actions} from 'react-native-router-flux';
 import Profile from './profile.js';
-import homeImage from '../img/./homeImage.jpg';
+import homeImage from '../img/./baseImage.jpg';
+import MyActivityIndicator from '../components/./activityIndicator.js';
 
 class Dashboard extends Component {
 
@@ -11,18 +12,13 @@ class Dashboard extends Component {
   }
   
   componentDidMount = () => {
-
-    if(AsyncStorage.getItem('loggedUser')){
-      Actions.dashboard()
-    }
-    else{
-      Actions.home()
-    }
+    AsyncStorage.getItem('loggedUser').then((value) => {
+      console.log(value, 'getLoggeduser')
+    });
   }
 
   logout = () => {
-    AsyncStorage.removeItem('loggedUser')
-    if(AsyncStorage.getItem('loggedUser') !== ''){
+    if(AsyncStorage.removeItem('loggedUser')){
       alert('Successfully logout')
       Actions.home()
     }
@@ -31,6 +27,7 @@ class Dashboard extends Component {
   render() {
     return (
       <Image source={homeImage} style={styles.container}>
+        <MyActivityIndicator/>
         <TouchableHighlight style={styles.button} onPress={() => Actions.profile()} >
           <Text style={styles.welcome}>
             Profile

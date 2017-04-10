@@ -1,8 +1,8 @@
 #first priorty : - 
 #Components --
-ListView 
-ScrollView
-WebView
+ListView --
+ScrollView--
+WebView--
 RefreshControl
 Slider
 StatusBar
@@ -16,10 +16,9 @@ toolbarandroid
 ViewPagerAndroid
 
 #API--
-DatePickerAndroid
-TimePickerAndroid
+DatePickerAndroid -- Reactnativedatepicker
 Alert
-asyncstorage
+asyncstorage --logout issues
 Cameraroll
 Geolocation
 ImageEditior
