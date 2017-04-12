@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {StyleSheet,Text,Image,AsyncStorage, ActivityIndicator} from 'react-native';
+import {StyleSheet,Text,Image,AsyncStorage, ActivityIndicator, Alert} from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import HandleLogin from './handleLogin.js';
 import homeImage from '../img/./baseImage.jpg';
@@ -48,13 +48,16 @@ class Login extends Component {
         {
           AsyncStorage.setItem('loggedUser', JSON.stringify(val) );
           this.setState({'loggedUser' : val})
-          alert("Successfully logged in");
+          Alert.alert(
+            'Welcome',
+            'Successfully logged in '
+          )
           Actions.dashboard()
         }
       } 
     }
     else if(this.state.email === '' && this.state.password === '' ){
-      alert("Oops! You are not providing credentials, please enter email and password");
+      Alert.alert("Oops! You are not providing credentials, please enter email and password")
     }
   }
 

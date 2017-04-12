@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {StyleSheet,Text,Image,TouchableHighlight,AsyncStorage} from 'react-native';
+import {StyleSheet,Text,Image,TouchableHighlight,AsyncStorage, StatusBar} from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import homeImage from '../img/./homeImage.jpg';
 
@@ -18,6 +18,11 @@ class Home extends Component {
     return (
       <Image source={homeImage}
         style={styles.container}>
+         <StatusBar
+            backgroundColor = "#ff6347"
+            barStyle = "light-content"
+            hidden = {false}
+         />
         <Text style={styles.welcome} >
           Welcome the React-native App
         </Text>

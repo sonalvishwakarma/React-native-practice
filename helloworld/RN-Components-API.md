@@ -1,23 +1,25 @@
 #first priorty : - 
 #Components --
+Touches --
+Button --
 ListView --
 ScrollView--
 WebView--
 RefreshControl
-Slider
-StatusBar
-ActivityIndicator
-Switch
-Modal
-Picker
-ProgressBarAndroid
+Slider --
+StatusBar --
+ActivityIndicator --
+Switch --
+Modal --
+Picker --
+ProgressBarAndroid -??
 sectionlist
 toolbarandroid
 ViewPagerAndroid
 
 #API--
 DatePickerAndroid -- Reactnativedatepicker
-Alert
+Alert --
 asyncstorage --logout issues
 Cameraroll
 Geolocation

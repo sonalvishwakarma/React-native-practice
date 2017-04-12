@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import {StyleSheet,Text,View, Image,TouchableHighlight,AsyncStorage} from 'react-native';
+import {StyleSheet,Text,View, Image,TouchableHighlight,AsyncStorage, Alert} from 'react-native';
 import {Actions} from 'react-native-router-flux';
 import Profile from './profile.js';
 import homeImage from '../img/./baseImage.jpg';
 import MyActivityIndicator from '../components/./activityIndicator.js';
+import SimpleSlider from '../components/./simpleSlider.js';
+
 
 class Dashboard extends Component {
 
@@ -19,7 +21,9 @@ class Dashboard extends Component {
 
   logout = () => {
     if(AsyncStorage.removeItem('loggedUser')){
-      alert('Successfully logout')
+      Alert.alert(
+        'Bye bye',         
+        'Successfully logout')
       Actions.home()
     }
   }
@@ -27,7 +31,17 @@ class Dashboard extends Component {
   render() {
     return (
       <Image source={homeImage} style={styles.container}>
+        <View>
+          <Text>Slider</Text>
+          <SimpleSlider/>
+        </View>
+
+        <View>
+          <Text>Slider</Text>
+        </View>
+
         <MyActivityIndicator/>
+
         <TouchableHighlight style={styles.button} onPress={() => Actions.profile()} >
           <Text style={styles.welcome}>
             Profile

@@ -19,7 +19,7 @@ class App extends Component {
           <Scene key="signUp" component={SignUp} title="SignUp" />
           <Scene key="dashboardComp" component={DashboardComp} title="Components" />
           <Scene key="dashboard" component={Dashboard} title="Dashboard" />
-          <Scene key="profile" component={Profile} title="profile" />
+          <Scene key="profile" component={Profile} title="Profile" />
           <Scene key="listView" component={ListViewC} title="List View" />
           <Scene key="mapView" component={MapViewC} title="Map View" />
         </Scene>

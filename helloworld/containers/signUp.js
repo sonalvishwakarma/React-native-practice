@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {StyleSheet,Text,Image, DatePickerAndroid} from 'react-native';
+import {StyleSheet,Text,Image, DatePickerAndroid, Alert} from 'react-native';
 import HandleSignUp from './handleSignUp.js';
 import { Actions } from 'react-native-router-flux';
 import homeImage from '../img/./baseImage.jpg';
@@ -89,18 +89,23 @@ class SignUp extends Component {
           }.bind(this))
         }.bind(this));
         Actions.login()
-        alert("Successfully Sign in")
+        Alert.alert(
+         'Welcome',
+         'Successfully Sign in'
+        )
       }
       else if(this.state.password !== this.state.confirmPassword) {
-        alert("password and confirm password do not match.");
+        Alert.alert("password and confirm password do not match.")
       }
     }
 
     else{
-      alert("Please enter details");
+      Alert.alert(
+        'OOps!!',
+        'Please enter details'
+      )
     }
     Actions.dashboard()
-    alert("Successfully Sign in")
   }
 
   render(){

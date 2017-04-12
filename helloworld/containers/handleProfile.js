@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
-import {StyleSheet,Text,TextInput,View,TouchableHighlight,ScrollView} from 'react-native';
+import {StyleSheet,Text,TextInput,View,TouchableHighlight,ScrollView,Button,ProgressBar} from 'react-native';
 import MyDatePicker from '../components/./datePicker.js';
+import PickerDD from '../components/./pickerDropdown.js';
 
 export default HandleProfile = (props) => {
   return (
-    <View>
+    <View style={styles.container}>
+      <Text style={{fontSize: 20,textAlign: 'center',color: 'firebrick'}}>Edit Profile</Text>
+       <ProgressBar styleAttr="Horizontal" color="red"/>
+
       <ScrollView>
         <Text>First Name</Text>
         <TextInput underlineColorAndroid='transparent' 
@@ -29,7 +33,7 @@ export default HandleProfile = (props) => {
           style = {styles.input}
           autoCapitalize = 'none'
         />
-         <Text>Date of Birth</Text>
+        <Text>Date of Birth</Text>
         <MyDatePicker/>
 
         <Text>Contact No</Text>
@@ -45,17 +49,11 @@ export default HandleProfile = (props) => {
         />
 
         <Text>City</Text>
-        <TextInput underlineColorAndroid='transparent'
-          style = {styles.input}
-          autoCapitalize = 'none'
-        />
+        <PickerDD/>
       </ScrollView> 
-  
-      <TouchableHighlight
-        style = {styles.submit}>
-        <Text>
-          Submit
-        </Text>
+      
+      <TouchableHighlight style={styles.submit}>
+        <Text>Save</Text>     
       </TouchableHighlight>
     </View>  
   )
@@ -69,8 +67,8 @@ const styles = StyleSheet.create({
     width: undefined,
     height: undefined,
     backgroundColor:'transparent',
-    paddingTop:50,
-    marginTop: 50,
+    paddingTop:10,
+    marginTop: 10,
   },
   welcome: {
     fontSize: 20,
@@ -87,8 +85,10 @@ const styles = StyleSheet.create({
     color:'white'
   },
   submit: {
-    backgroundColor: 'grey',
+    backgroundColor: '#2e8b57',
+    borderRadius: 5,
     padding: 10,
+    marginTop : 30,
     marginRight: 80,
     marginLeft: 80,
   }
