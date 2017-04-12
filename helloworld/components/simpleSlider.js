@@ -28,6 +28,7 @@ var styles = StyleSheet.create({
   slider: {
     height: 10,
     margin: 10,
+    width : 25,
   },
   text: {
     fontSize: 14,
@@ -36,4 +37,5 @@ var styles = StyleSheet.create({
     margin: 10,
     marginTop : 10
   },
+
 });

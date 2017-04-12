@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import {StyleSheet,Text,Image,TouchableHighlight,AsyncStorage, StatusBar} from 'react-native';
+import {StyleSheet,Text,View,Image,TouchableHighlight,AsyncStorage, StatusBar} from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import homeImage from '../img/./homeImage.jpg';
+import MovingBar from '../components/./progressBar.js';
 
 class Home extends Component {
 
   componentDidMount = () => {
     if(AsyncStorage.getItem('loggedUser')){
-        Actions.dashboard()
+      Actions.dashboard()
     }
     else{
       Actions.home()
@@ -26,6 +27,9 @@ class Home extends Component {
         <Text style={styles.welcome} >
           Welcome the React-native App
         </Text>
+        <View>
+          <MovingBar styleAttr="Horizontal" indeterminate={false} color="#ff6347" />
+        </View>
         <TouchableHighlight style={styles.button} onPress={() => Actions.login()}  underlayColor='midnightblue'>
           <Text style={styles.welcome}>
             Login
@@ -38,7 +42,7 @@ class Home extends Component {
         </TouchableHighlight>
         <TouchableHighlight style={styles.button} onPress={() => Actions.dashboardComp()}  underlayColor='midnightblue'>
           <Text style={styles.welcome}>
-            Dashborad Conpoents
+            Dashborad Conponents
           </Text>
         </TouchableHighlight>
       </Image> 

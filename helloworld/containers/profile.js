@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import {StyleSheet,Text,Image,AsyncStorage, View, TouchableHighlight, 
 Modal, Button, StatusBar, Switch} from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import HandleProfile from './handleProfile.js';
+import EditProfile from './editProfile.js';
 import homeImage from '../img/./baseImage.jpg';
 import MyActivityIndicator from '../components/./activityIndicator.js';
+import ProgressBarB from '../components/./progressBarAB.js';
 
 var loggedprofile;
 
@@ -39,10 +40,10 @@ class Profile extends Component {
     return (
       <Image source={homeImage} style={styles.container}>
         <StatusBar
-            backgroundColor = "lightskyblue"
-            barStyle = "light-content"
-            hidden = {false}
-         />
+          backgroundColor = "lightskyblue"
+          barStyle = "light-content"
+          hidden = {false}
+        />
         <View> 
           <Text>Edit profile</Text>
           <Switch
@@ -79,7 +80,6 @@ class Profile extends Component {
               Edit Profile
             </Text>
           </TouchableHighlight> ) : null}
-
          
         </View>
         <View >
@@ -91,9 +91,10 @@ class Profile extends Component {
             >
 
             <View style={styles.modal}>
-              <MyActivityIndicator/>
+              <Text style={styles.text}>Progress Bar 2</Text>
+              <ProgressBarB />
 
-              <HandleProfile />
+              <EditProfile />
               <Button
                 onPress={this.closeModal}
                 title="close" color="firebrick">

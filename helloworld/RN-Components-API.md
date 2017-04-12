@@ -6,13 +6,13 @@ ListView --
 ScrollView--
 WebView--
 RefreshControl
-Slider --
+Slider -- Modify?
 StatusBar --
 ActivityIndicator --
 Switch --
 Modal --
 Picker --
-ProgressBarAndroid -??
+ProgressBarAndroid -- Modify?
 sectionlist
 toolbarandroid
 ViewPagerAndroid

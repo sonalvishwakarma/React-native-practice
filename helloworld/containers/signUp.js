@@ -20,8 +20,7 @@ class SignUp extends Component {
       lname : '',
       email: '',
       password : '',
-      confirmPassword : '',
-      dob : ''
+      confirmPassword : ''
     };
   }
 

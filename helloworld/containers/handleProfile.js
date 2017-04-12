@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {StyleSheet,Text,TextInput,View,TouchableHighlight,ScrollView,Button,ProgressBar} from 'react-native';
+import {StyleSheet,Text,TextInput,View,TouchableHighlight,ScrollView,Button} from 'react-native';
 import MyDatePicker from '../components/./datePicker.js';
 import PickerDD from '../components/./pickerDropdown.js';
 
@@ -7,7 +7,6 @@ export default HandleProfile = (props) => {
   return (
     <View style={styles.container}>
       <Text style={{fontSize: 20,textAlign: 'center',color: 'firebrick'}}>Edit Profile</Text>
-       <ProgressBar styleAttr="Horizontal" color="red"/>
 
       <ScrollView>
         <Text>First Name</Text>
@@ -86,7 +85,6 @@ const styles = StyleSheet.create({
   },
   submit: {
     backgroundColor: '#2e8b57',
-    borderRadius: 5,
     padding: 10,
     marginTop : 30,
     marginRight: 80,

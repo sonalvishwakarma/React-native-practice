@@ -6,7 +6,6 @@ import homeImage from '../img/./baseImage.jpg';
 import MyActivityIndicator from '../components/./activityIndicator.js';
 import SimpleSlider from '../components/./simpleSlider.js';
 
-
 class Dashboard extends Component {
 
   constructor(props){
@@ -32,12 +31,8 @@ class Dashboard extends Component {
     return (
       <Image source={homeImage} style={styles.container}>
         <View>
-          <Text>Slider</Text>
+          <Text>Slider</Text> 
           <SimpleSlider/>
-        </View>
-
-        <View>
-          <Text>Slider</Text>
         </View>
 
         <MyActivityIndicator/>

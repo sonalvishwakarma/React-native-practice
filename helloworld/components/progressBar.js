@@ -1,33 +1,36 @@
-{/*import React, { Component } from 'react';
-import {StyleSheet, View, ProgressBarAndroid, ProgressBar} from 'react-native';
-import {TimerMixin} from 'react-timer-mixin';
+import React, { Component } from 'react';
+import {StyleSheet, View, ProgressBarAndroid} from 'react-native';
 
 export default class MovingBar extends Component{ 
- mixins : [TimerMixin]
 
   constructor(props){
     super(props);
     this.state = {
-      return {
-        progress: 0
-      }
+      progress: 0
     };
   }
 
   componentDidMount = () => {
-    this.setInterval(
+    setInterval(
       () => {
-        var progressC = (this.state.progress + 0.02) % 1;
+        var progressC = (this.state.progress + 0.01) % 1;
         this.setState({progress: progressC})
-      },50
+      },100
     );
   }
 
   render () {
     return (
-      <ProgressBar progress={this.state.progress} {...this.props} />
+      <View style={styles.widthc}>
+        <ProgressBarAndroid progress={this.state.progress} {...this.props} />
+      </View>  
     )
   }
 };
 
-*/}
+const styles = StyleSheet.create({
+  widthc : {
+    width : 300
+  }
+})
+
