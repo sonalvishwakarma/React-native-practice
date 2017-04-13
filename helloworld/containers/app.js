@@ -8,6 +8,7 @@ import Dashboard from './dashboard.js';
 import Profile from './profile.js';
 import ListViewC from './listView.js';
 import MapViewC from './mapView.js';
+import ViewPagerAndroidExample from '../components/./viewPager.js';
 
 class App extends Component {
   render(){
@@ -22,6 +23,7 @@ class App extends Component {
           <Scene key="profile" component={Profile} title="Profile" />
           <Scene key="listView" component={ListViewC} title="List View" />
           <Scene key="mapView" component={MapViewC} title="Map View" />
+          <Scene key="pager" component={ViewPagerAndroidExample} title="View Pager" />
         </Scene>
       </Router>
     );

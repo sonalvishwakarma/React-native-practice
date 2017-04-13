@@ -7,28 +7,35 @@ import ProgressBarB from '../components/./progressBarAB.js';
 
 var editLoggedProfile;
 var userApi = 'https://api.myjson.com/bins/o4zz3';
-var users = [];
-
+var userss = [];
 class EditProfile extends Component {
 
   constructor(props) {
     super(props);
 
     this.state = {
-      editUser : '',
+      user : {},
       fname : '',
       lname : '',
       email: '',
       password : '',
       contactNo : '',
-      address : ''
+      address : '',
+      users : []
     }
   }
       
   componentDidMount = () => {
     AsyncStorage.getItem('loggedUser').then((value) => {
       editLoggedProfile = JSON.parse(value);
-      this.setState({editUser : editLoggedProfile})
+      this.setState({user : editLoggedProfile})
+      this.setState({fname : editLoggedProfile.FirstName})
+      this.setState({lname : editLoggedProfile.LastName})
+      this.setState({email : editLoggedProfile.EmailID})
+      this.setState({password : editLoggedProfile.Password})
+      this.setState({contactNo : editLoggedProfile.ContactNo})
+      this.setState({address : editLoggedProfile.Address1})
+
       console.log(editLoggedProfile, 'editLoggedProfile')
     });
 
@@ -65,13 +72,19 @@ class EditProfile extends Component {
       return response.json()
     })   
     .then( (json) => {
-      json.find(function (value) {
+      json.forEach( (value) => {
         if(value.UserID === editLoggedProfile.UserID){
-          users = value
-          console.log(users)
+          userss.push(value)
+          this.setState({users : userss})
+          console.log(this.state.users,'users')
         }
       })
     });
+  }
+
+  updateProfile = () => {
+    AsyncStorage.setItem('loggedUser', JSON.stringify(editLoggedProfile) );
+    this.setState({'loggedUser' : editLoggedProfile})
   }
 
   render(){
@@ -83,26 +96,37 @@ class EditProfile extends Component {
           <Text>First Name</Text>
           <TextInput underlineColorAndroid='transparent' 
             style = {styles.input} 
-            autoCapitalize = 'none'
+            autoCapitalize = 'none' 
+            value={this.state.fname}
+            onChange={this.handleFirstName}
           />
 
           <Text>Last Name</Text>
           <TextInput underlineColorAndroid='transparent'
             style = {styles.input}
             autoCapitalize = 'none'
+            value={this.state.lname}
+            onChange={this.handleLastName}
           />
 
           <Text>Email</Text>
           <TextInput underlineColorAndroid='transparent'
             style = {styles.input}
             autoCapitalize = 'none'
+            editable = {false}
+            value={this.state.email}
+            onChange={this.handleEmail}
           />
 
           <Text>Password</Text>
           <TextInput underlineColorAndroid='transparent'
             style = {styles.input}
             autoCapitalize = 'none'
+            editable = {false}
+            value={this.state.password}
+            onChange={this.handlePassword}
           />
+
           <Text>Date of Birth</Text>
           <MyDatePicker/>
 
@@ -110,19 +134,26 @@ class EditProfile extends Component {
           <TextInput underlineColorAndroid='transparent'
             style = {styles.input}
             autoCapitalize = 'none'
+            keyboardType = 'numeric'
+            maxLength={10}
+            value={this.state.contactNo}
+            onChange={this.handleContactNumber}
           />
 
           <Text>Address</Text>
           <TextInput underlineColorAndroid='transparent'
             style = {styles.input}
             autoCapitalize = 'none'
+            numberOfLines={2}
+            value={this.state.address}
+            onChange={this.handleAddress}
           />
 
           <Text>City</Text>
           <PickerDD/>
         </ScrollView> 
         
-        <TouchableHighlight style={styles.submit}>
+        <TouchableHighlight style={styles.submit} onPress={this.updateProfile}>
           <Text>Save</Text>     
         </TouchableHighlight>
       </View>  
@@ -146,6 +177,14 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     margin: 10,
     color: 'grey',
+  },
+  input: {
+    margin: 15,
+    height: 40,
+    width: 250,
+    borderColor: 'grey',
+    borderWidth: 1,
+    color: 'black',
   },
   text : {
     marginTop : 20

@@ -6,14 +6,14 @@ import MovingBar from '../components/./progressBar.js';
 
 class Home extends Component {
 
-  componentDidMount = () => {
-    if(AsyncStorage.getItem('loggedUser')){
-      Actions.dashboard()
-    }
-    else{
-      Actions.home()
-    }
-  }
+  //componentDidMount = () => {
+  //  if(AsyncStorage.getItem('loggedUser')){
+  //    Actions.dashboard()
+  //  }
+  //  else{
+  //    Actions.home()
+   // }
+  //}
 
   render() {
     return (

@@ -20,9 +20,9 @@ class DashboardComp extends Component {
             Map View
           </Text>
         </TouchableHighlight>
-        <TouchableHighlight style={styles.button} underlayColor='midnightblue'>
+        <TouchableHighlight style={styles.button} onPress = {() => Actions.pager()} underlayColor='midnightblue'>
           <Text style={styles.welcome}>
-            CameraRoll
+            View Pager
           </Text>
         </TouchableHighlight>
         <TouchableHighlight style={styles.button} underlayColor='midnightblue'>
@@ -42,16 +42,6 @@ class DashboardComp extends Component {
         </TouchableHighlight>
         <TouchableHighlight style={styles.button} underlayColor='midnightblue'>
           <Text style={styles.welcome}>
-            Switch
-          </Text>
-        </TouchableHighlight>
-        <TouchableHighlight style={styles.button} underlayColor='midnightblue'>
-          <Text style={styles.welcome}>
-            StatusBar
-          </Text>
-        </TouchableHighlight> 
-        <TouchableHighlight style={styles.button} underlayColor='midnightblue'>
-          <Text style={styles.welcome}>
             ProgressBarAndroid
           </Text>
         </TouchableHighlight>
@@ -64,7 +54,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: '#bb0000',
+    backgroundColor: 'skyblue',
   },
   welcome: {
     fontSize: 20,
