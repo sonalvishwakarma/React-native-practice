@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import {StyleSheet,Text,Image,AsyncStorage, ActivityIndicator, Alert} from 'react-native';
+import {StyleSheet,Text,View, Image,AsyncStorage, Alert} from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import HandleLogin from './handleLogin.js';
 import homeImage from '../img/./baseImage.jpg';
-import MyActivityIndicator from '../components/./activityIndicator.js';
+import ToolBarA from '../components/./toolBar.js';
 
 var userApi = 'https://api.myjson.com/bins/o4zz3';
 var users = [];
@@ -61,13 +61,9 @@ class Login extends Component {
     }
   }
 
-  indicator = () => {
-    <MyActivityIndicator/>
-  }
-
   render(){
     return (
-      <Image source={homeImage} style={styles.container}>
+      <Image source={homeImage} style={styles.container} >
         <HandleLogin
           handleEmail = {this.handleEmail}
           handlePassword = {this.handlePassword}
@@ -92,13 +88,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     margin: 10,
     color: 'grey',
-  },
-  activityIndicator: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: 80
-   }
+  }
 });
 
 export default Login;

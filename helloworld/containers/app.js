@@ -9,6 +9,8 @@ import Profile from './profile.js';
 import ListViewC from './listView.js';
 import MapViewC from './mapView.js';
 import ViewPagerAndroidExample from '../components/./viewPager.js';
+import Section from '../components/./sectionList.js';
+import ToolBarA from '../components/./toolBar.js';
 
 class App extends Component {
   render(){
@@ -24,6 +26,8 @@ class App extends Component {
           <Scene key="listView" component={ListViewC} title="List View" />
           <Scene key="mapView" component={MapViewC} title="Map View" />
           <Scene key="pager" component={ViewPagerAndroidExample} title="View Pager" />
+          <Scene key="section" component={Section} title="Section List" />
+          <Scene key="toolbar" component={ToolBarA} title="ToolBar"/>
         </Scene>
       </Router>
     );

@@ -14,13 +14,13 @@ Modal --
 Picker --
 ProgressBarAndroid -- Modify?
 sectionlist
-toolbarandroid
-ViewPagerAndroid
+toolbarandroid -
+ViewPagerAndroid --
 
 #API--
 DatePickerAndroid -- Reactnativedatepicker
 Alert --
-asyncstorage --logout issues
+asyncstorage --
 Cameraroll
 Geolocation
 ImageEditior

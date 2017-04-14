@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {StyleSheet,Text,Image,AsyncStorage, View, TouchableHighlight, 
-Modal, Button, StatusBar, Switc,ToolbarAndroid} from 'react-native';
+Modal, Button, StatusBar, Switch ,ToolbarAndroid} from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import EditProfile from './editProfile.js';
 import homeImage from '../img/./baseImage.jpg';
@@ -48,6 +48,9 @@ class Profile extends Component {
           <Switch
             onValueChange={(value) => this.setState({switchOn: value})}
             style={{marginBottom: 10}}
+            tintColor = "#ff6347"
+            thumbTintColor = "blue"
+            onTintColor = "#008000"
             value={this.state.switchOn}>
           </Switch>
         </View>
@@ -68,13 +71,13 @@ class Profile extends Component {
             {this.state.user.EmailID}
           </Text>
 
-          {(this.state.switchOn) ? ( <TouchableHighlight  onPress = {this.openModal}
-            style = {styles.submit} underlayColor='midnightblue'>
-            <Text>
-              Edit Profile
-            </Text>
-          </TouchableHighlight> ) : null}
-         
+          {
+            (this.state.switchOn) 
+            ? (<Button onPress={this.openModal} color="#008000"
+            title="Edit" style={styles.submit} ></Button>) 
+            : null
+          }
+
         </View>
         <View >
           <Modal 

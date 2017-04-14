@@ -25,14 +25,14 @@ class DashboardComp extends Component {
             View Pager
           </Text>
         </TouchableHighlight>
-        <TouchableHighlight style={styles.button} underlayColor='midnightblue'>
+        <TouchableHighlight style={styles.button} onPress = {() => Actions.section()} underlayColor='midnightblue'>
           <Text style={styles.welcome}>
-            Geolocation
+            SectionList
           </Text>
         </TouchableHighlight>
-        <TouchableHighlight style={styles.button} underlayColor='midnightblue'>
+        <TouchableHighlight style={styles.button} onPress = {() => Actions.toolbar()} underlayColor='midnightblue'>
           <Text style={styles.welcome}>
-            NetInfo
+            ToolBar
           </Text>
         </TouchableHighlight>
         <TouchableHighlight style={styles.button} underlayColor='midnightblue'>

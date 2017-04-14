@@ -42,7 +42,7 @@ class Home extends Component {
         </TouchableHighlight>
         <TouchableHighlight style={styles.button} onPress={() => Actions.dashboardComp()}  underlayColor='midnightblue'>
           <Text style={styles.welcome}>
-            Dashborad Conponents
+            Dashboard Conponents
           </Text>
         </TouchableHighlight>
       </Image> 
