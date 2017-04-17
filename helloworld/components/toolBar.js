@@ -6,9 +6,12 @@ import { Actions } from 'react-native-router-flux';
 
 class ToolBarA extends Component {
 
-  state = {
-    actionText: 'ToolbarAndroid Example',
-  };
+  constructor(props){
+  super(props);
+    this.state = {
+      actionText: 'ToolbarAndroid Example',
+    };
+  }
 
   render() {
     return (

@@ -5,19 +5,19 @@ export default HandleListView  = (props) => {
 	return (
 	  <View style={styles.listContainer}>
 	    <WebView style={styles.img} source={{uri : 'http://shfcs.org/en/wp-content/uploads/2015/11/MedRes_Product-presentation-2.jpg'}}
-	     />  
-		    <ScrollView>
-			    <ListView 
-			    	dataSource = {props.dataSource}
-		        renderRow = {
-		        	(data) => (
-		        	  <Text style={styles.listItem}>
-		        	    {data.name}
-		        	  </Text>          
-		        	)
-		 	      } 
-		    	/>
-		    </ScrollView>	
+	    />  
+	    <ScrollView>
+		    <ListView 
+		    	dataSource = {props.dataSource}
+	        renderRow = {
+	        	(data) => (
+	        	  <Text style={styles.listItem}>
+	        	    {data.name}
+	        	  </Text>          
+	        	)
+	 	      } 
+	    	/>
+	    </ScrollView>	
 	  </View>     
 	)
 }

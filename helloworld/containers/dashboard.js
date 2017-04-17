@@ -5,6 +5,7 @@ import Profile from './profile.js';
 import homeImage from '../img/./baseImage.jpg';
 import MyActivityIndicator from '../components/./activityIndicator.js';
 import SimpleSlider from '../components/./simpleSlider.js';
+import GeoLocationInfo from '../components/./geoLocation.js';
 
 class Dashboard extends Component {
 
@@ -31,8 +32,8 @@ class Dashboard extends Component {
     return (
       <Image source={homeImage} style={styles.container}>
         <View>
-          <Text>Slider</Text> 
-          <SimpleSlider/>
+          <Text>GeoLocation</Text> 
+          
         </View>
 
         <MyActivityIndicator/>

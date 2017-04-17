@@ -22,11 +22,11 @@ DatePickerAndroid -- Reactnativedatepicker
 Alert --
 asyncstorage --
 Cameraroll
-Geolocation
+Geolocation -
 ImageEditior
-ToastAndroid
+ToastAndroid --
 Keyboard
-NetInfo
+NetInfo--
 Animated
 
 #existing app

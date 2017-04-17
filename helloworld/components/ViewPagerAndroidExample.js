@@ -8,17 +8,18 @@ import { Image,
 import type { ViewPagerScrollState } from 'ViewPagerAndroid';
 
 export default class ViewPagerAndroidExample extends Component {
-  static title = '<ViewPagerAndroid>';
-  static description = 'Container that allows to flip left and right between child views.';
 
-  state = {
-    page: 0,
-    animationsAreEnabled: true,
-    scrollEnabled: true,
-    progress: {
-      position: 0,
-      offset: 0,
-    },
+  constructor(props){
+  super(props);
+    state = {
+      page: 0,
+      animationsAreEnabled: true,
+      scrollEnabled: true,
+      progress: {
+        position: 0,
+        offset: 0,
+      },
+    }  
   };
 
   onPageSelected = (e) => {

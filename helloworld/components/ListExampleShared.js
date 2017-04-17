@@ -1,4 +1,4 @@
-
+{/*
 import React, { Component } from 'react';
 import {StyleSheet,Text,View, TouchableHighlight} from 'react-native';
 
@@ -158,7 +158,6 @@ integre luptatum. In tota sale consequuntur nec. Erat ocurreret mei ei. Eu paulo
 vulputate est, vel an accusam intellegam interesset. Nam eu stet pericula reprimique, ea vim illud \
 modus, putant invidunt reprehendunt ne qui.';
 
-/* eslint no-bitwise: 0 */
 function hashCode(str: string): number {
   let hash = 15;
   for (let ii = str.length - 1; ii >= 0; ii--) {
@@ -313,4 +312,4 @@ module.exports = {
   pressItem,
   renderSmallSwitchOption,
   renderStackedItem,
-};
+};*/}

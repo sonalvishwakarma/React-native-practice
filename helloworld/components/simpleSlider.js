@@ -2,13 +2,19 @@ import React, { Component } from 'react';
 import {StyleSheet,Text,View, Slider} from 'react-native';
 
 export default class SimpleSlider extends Component {
+ 
+
+  constructor(props){
+  super(props);
+    this.state = {
+      value: this.props.value,
+    };
+  }
+
   static defaultProps = {
     value: 0,
   };
 
-  state = {
-    value: this.props.value,
-  };
 
   render() {
     return (

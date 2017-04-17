@@ -3,9 +3,6 @@ import {View} from 'react-native';
 import HandleListView from './handleMapView.js';
 
 class MapViewC extends Component {
-	constructor(){
-		super();
-	}
 
 	render(){
 		return (

@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
-import {StyleSheet,Text,View, TouchableHighlight} from 'react-native';
+import {StyleSheet,Text,View, TouchableHighlight, ToastAndroid} from 'react-native';
 import {Actions} from 'react-native-router-flux';
+import GeoLocationInfo from '../components/./geoLocation.js';
 
 class DashboardComp extends Component {
 
-  render() {
+  componentDidMount (){
+     ToastAndroid.showWithGravity('Components list with example', ToastAndroid.SHORT, ToastAndroid.TOP)
+  }
+
+  render(){
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
@@ -37,14 +42,19 @@ class DashboardComp extends Component {
         </TouchableHighlight>
         <TouchableHighlight style={styles.button} underlayColor='midnightblue'>
           <Text style={styles.welcome}>
-            ToastAndroid
+            CameraRoll
           </Text>
         </TouchableHighlight>
-        <TouchableHighlight style={styles.button} underlayColor='midnightblue'>
+        <TouchableHighlight style={styles.button} onPress = {() => Actions.netInfo()} underlayColor='midnightblue'>
           <Text style={styles.welcome}>
-            ProgressBarAndroid
+            NetInfo
           </Text>
         </TouchableHighlight>
+
+        <View>
+          <Text>GeoLocation</Text> 
+          <GeoLocationInfo/>
+        </View>
       </View>
     );
   }

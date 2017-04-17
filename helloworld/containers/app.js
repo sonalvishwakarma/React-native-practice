@@ -6,11 +6,13 @@ import SignUp from './signUp.js';
 import DashboardComp from './dashboardComp.js';
 import Dashboard from './dashboard.js';
 import Profile from './profile.js';
-import ListViewC from './listView.js';
-import MapViewC from './mapView.js';
+import ListViewC from '../components/./listView.js';
+import MapViewC from '../components/./mapView.js';
 import ViewPagerAndroidExample from '../components/./viewPager.js';
 import Section from '../components/./sectionList.js';
 import ToolBarA from '../components/./toolBar.js';
+import InterNetInfo from '../components/./netInfo.js';
+
 
 class App extends Component {
   render(){
@@ -28,6 +30,7 @@ class App extends Component {
           <Scene key="pager" component={ViewPagerAndroidExample} title="View Pager" />
           <Scene key="section" component={Section} title="Section List" />
           <Scene key="toolbar" component={ToolBarA} title="ToolBar"/>
+          <Scene key="netInfo" component={InterNetInfo} title="Net Info"/>
         </Scene>
       </Router>
     );
