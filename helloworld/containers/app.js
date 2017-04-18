@@ -12,7 +12,9 @@ import ViewPagerAndroidExample from '../components/./viewPager.js';
 import Section from '../components/./sectionList.js';
 import ToolBarA from '../components/./toolBar.js';
 import InterNetInfo from '../components/./netInfo.js';
-
+import GeoLocationInfo from '../components/./geoLocation.js';
+import CameraRollExample from '../components/./cameraRoll.js';
+import CameraRollPic from '../components/./camera.js';
 
 class App extends Component {
   render(){
@@ -31,6 +33,9 @@ class App extends Component {
           <Scene key="section" component={Section} title="Section List" />
           <Scene key="toolbar" component={ToolBarA} title="ToolBar"/>
           <Scene key="netInfo" component={InterNetInfo} title="Net Info"/>
+          <Scene key="geolocation" component={GeoLocationInfo} title="Geo Location"/>
+          <Scene key="camera" component={CameraRollExample} title="Camera Roll"/>
+          <Scene key="camera1" component={CameraRollPic} title="Camera Roll 1"/>
         </Scene>
       </Router>
     );

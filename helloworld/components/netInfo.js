@@ -6,7 +6,7 @@ export default class InterNetInfo extends Component {
   constructor(props){
     super(props);
     this.state = {
-      connectionInfo: []
+      isConnected: []
     }
   }
 
@@ -15,8 +15,10 @@ export default class InterNetInfo extends Component {
       'change',
       this.handleConnectionInfoChange
     )
-    NetInfo.fetch().done(
-      (connectionInfo) => { this.setState({connectionInfo}); }
+    NetInfo.fetch().done( (isConnected) => {
+      this.setState({isConnected}); 
+        console.log('Online with', isConnected) 
+      }
     );
   }
 
@@ -25,18 +27,20 @@ export default class InterNetInfo extends Component {
       'change',
       this.handleConnectionInfoChange
     )
+    console.log("Offline")
   }
 
-  handleConnectionInfoChange = (connectionInfo) => {
-    console.log(connectionInfo,'connectionInfo')
-    this.setState({connectionInfo})
+  handleConnectionInfoChange = (isConnected) => {
+    console.log(isConnected,'isConnected')
+    this.setState({isConnected})
   }
 
   render(){
     return (
       <View style={styles.container}>
-        <Text>NETINFO</Text>
-        <Text>output {(this.state.connectionInfo )? 'online' : 'offline'}</Text>
+        <Text>Net Information</Text>
+        <Text>Net Status -  {(this.state.isConnected )? 'online' : 'offline'}</Text>
+        <Text>Connectivity type -  {this.state.isConnected}</Text>
       </View>
     );
   }

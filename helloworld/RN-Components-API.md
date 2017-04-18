@@ -3,6 +3,7 @@
 Touches --
 Button --
 ListView --
+MapView -- ? Issues
 ScrollView--
 WebView--
 RefreshControl
@@ -14,16 +15,15 @@ Modal --
 Picker --
 ProgressBarAndroid -- Modify?
 sectionlist
-toolbarandroid -
-ViewPagerAndroid --
+toolbarandroid --
+ViewPagerAndroid -- Modify?
 
 #API--
 DatePickerAndroid -- Reactnativedatepicker
 Alert --
 asyncstorage --
-Cameraroll
-Geolocation -
-ImageEditior
+Cameraroll -?
+Geolocation -- run on real device
 ToastAndroid --
 Keyboard
 NetInfo--
@@ -31,6 +31,6 @@ Animated
 
 #existing app
 
-apply components and api on login/ signup/ dashborad/ profile/ logout/
+
 
 

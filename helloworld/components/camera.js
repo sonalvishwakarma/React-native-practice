@@ -1,49 +1,98 @@
-{/*import React, { Component } from 'react';
-import {Text,View,StyleSheet} from 'react-native';
+import React, { Component } from 'react';
+import { StyleSheet,View,Dimensions,TouchableHighlight,Image,Text} from 'react-native';
 import Camera from 'react-native-camera';
 
-export default camera = (props) => {
-   return (
-      <View style = {styles.container}>
-         <Camera
-            ref = {(cam) => {
-               this.camera = cam; 
-            }}
-            style = {styles.preview}
-            aspect = {Camera.constants.Aspect.fill}>
-            <Text
-               style = {styles.capture}
-               onPress = {props.takePicture}>
-               CAPTURE
-            </Text>
-         </Camera>
+export default class CameraRollPic extends Component {
 
-         <Text style = {styles.text}>
-            {props.imagePath}
-         </Text>
+  constructor(props){
+    super(props)
+    this.state = {
+      imagePath: null
+    }
+  }
 
+  takePicture() {
+    this.camera.capture()
+    .then((data) => {
+      console.log(data);
+      this.setState({ imagePath: data.path })
+    })
+    .catch(err => console.error(err));
+  }
+
+  renderCamera() {
+    return (
+      <Camera
+        ref={(cam) => {
+          this.camera = cam;
+        }}
+        style={styles.preview}
+        aspect={Camera.constants.Aspect.fill}
+        captureTarget={Camera.constants.CaptureTarget.disk}
+      >
+        <TouchableHighlight
+          style={styles.capture}
+          onPress={this.takePicture.bind(this)}
+          underlayColor="rgba(255, 255, 255, 0.5)"
+        >
+          <View />
+        </TouchableHighlight>
+      </Camera>
+    );
+  }
+
+  renderImage() {
+    return (
+      <View>
+        <Image
+          source={{ uri: this.state.imagePath }}
+          style={styles.preview}
+        />
+        <Text
+          style={styles.cancel}
+          onPress={() => this.setState({ imagePath: null })}
+        >Cancel
+        </Text>
       </View>
-   );
+    );
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        {this.state.imagePath ? this.renderImage() : this.renderCamera()}
+      </View>
+    );
+  }
 }
 
-const styles = StyleSheet.create ({
-   container: {
-      flex: 1
-   },
-   preview: {
-      height: 400,
-      justifyContent: 'flex-end',
-      alignItems: 'center',
-   },
-   capture: {
-      flex: 0,
-      backgroundColor: '#fff',
-      borderRadius: 5,
-      color: '#000',
-      padding: 10,
-      margin: 40
-   },
-   text: {
-      fontWeight: 'bold',
-   }
-});*/}
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#000',
+  },
+  preview: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
+  capture: {
+    width: 70,
+    height: 70,
+    borderRadius: 35,
+    borderWidth: 5,
+    borderColor: '#FFF',
+    marginBottom: 15,
+  },
+  cancel: {
+    position: 'absolute',
+    right: 20,
+    top: 20,
+    backgroundColor: 'transparent',
+    color: '#FFF',
+    fontWeight: '600',
+    fontSize: 17,
+  }
+});

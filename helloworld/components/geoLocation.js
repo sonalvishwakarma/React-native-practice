@@ -34,13 +34,14 @@ export default class GeoLocationInfo extends Component {
 
   render() {
     return (
-      <View>
+      <View style= {styles.container}>
+        <Text > Location Info </Text>
         <Text>
-          <Text style={styles.title}>Initial position: </Text>
+          <Text >Initial position: </Text>
           {this.state.initialPosition}
         </Text>
         <Text>
-          <Text style={styles.title}>Current position: </Text>
+          <Text >Current position: </Text>
           {this.state.lastPosition}
         </Text>
       </View>

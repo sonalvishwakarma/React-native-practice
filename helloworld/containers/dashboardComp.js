@@ -15,12 +15,12 @@ class DashboardComp extends Component {
         <Text style={styles.welcome}>
           Components
         </Text>
-        <TouchableHighlight style={styles.button} onPress={() => Actions.listView()} underlayColor='midnightblue'>
+        <TouchableHighlight style={styles.button} onPress= {() => Actions.listView()} underlayColor='midnightblue'>
           <Text style={styles.welcome}>
             List View
           </Text>
         </TouchableHighlight>
-        <TouchableHighlight style={styles.button} onPress={() => Actions.mapView()} underlayColor='midnightblue'>
+        <TouchableHighlight style={styles.button} onPress= {() => Actions.mapView()} underlayColor='midnightblue'>
           <Text style={styles.welcome}>
             Map View
           </Text>
@@ -40,9 +40,9 @@ class DashboardComp extends Component {
             ToolBar
           </Text>
         </TouchableHighlight>
-        <TouchableHighlight style={styles.button} underlayColor='midnightblue'>
+        <TouchableHighlight style={styles.button} onPress = {() => Actions.geolocation()} underlayColor='midnightblue'>
           <Text style={styles.welcome}>
-            CameraRoll
+            Geo Location
           </Text>
         </TouchableHighlight>
         <TouchableHighlight style={styles.button} onPress = {() => Actions.netInfo()} underlayColor='midnightblue'>
@@ -50,11 +50,16 @@ class DashboardComp extends Component {
             NetInfo
           </Text>
         </TouchableHighlight>
-
-        <View>
-          <Text>GeoLocation</Text> 
-          <GeoLocationInfo/>
-        </View>
+         <TouchableHighlight style={styles.button} onPress = {() => Actions.camera()} underlayColor='midnightblue'>
+          <Text style={styles.welcome}>
+            CameraRoll
+          </Text>
+        </TouchableHighlight>
+        <TouchableHighlight style={styles.button} onPress = {() => Actions.camera1()} underlayColor='midnightblue'>
+          <Text style={styles.welcome}>
+            CameraRoll 1
+          </Text>
+        </TouchableHighlight>
       </View>
     );
   }
