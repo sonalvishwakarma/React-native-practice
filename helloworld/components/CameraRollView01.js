@@ -1,21 +1,19 @@
-import React, { Component } from 'react';
-import {
-	ActivityIndicator,
-  Alert,
-  CameraRoll,
-  Image,
-  ListView,
-  PermissionsAndroid,
-  Platform,
-  StyleSheet,
-  View} from 'react-native';
-import PropTypes from 'prop-types';
+
+var React = require('react');
+const PropTypes = require('prop-types');
+var ReactNative = require('react-native');
+var {ActivityIndicator,Alert,CameraRoll,Image,ListView,PermissionsAndroid, Platform,StyleSheet,View,
+} = ReactNative;
 
 var groupByEveryN = require('groupByEveryN');
 var logError = require('logError');
 
-
 var propTypes = {
+  /**
+   * The group where the photos will be fetched from. Possible
+   * values are 'Album', 'All', 'Event', 'Faces', 'Library', 'PhotoStream'
+   * and SavedPhotos.
+   */
   groupTypes: PropTypes.oneOf([
     'Album',
     'All',
@@ -26,17 +24,30 @@ var propTypes = {
     'SavedPhotos',
   ]),
 
+  /**
+   * Number of images that will be fetched in one page.
+   */
   batchSize: PropTypes.number,
 
+  /**
+   * A function that takes a single image as a parameter and renders it.
+   */
   renderImage: PropTypes.func,
 
+  /**
+   * imagesPerRow: Number of images to be shown in each row.
+   */
   imagesPerRow: PropTypes.number,
 
+   /**
+   * The asset type, one of 'Photos', 'Videos' or 'All'
+   */
   assetType: PropTypes.oneOf([
     'Photos',
     'Videos',
     'All',
   ]),
+
 };
 
 var CameraRollView = React.createClass({
@@ -135,7 +146,7 @@ var CameraRollView = React.createClass({
       const data = await CameraRoll.getPhotos(fetchParams);
       this._appendAssets(data);
     } catch (e) {
-      alert(e);
+      logError(e);
     }
   },
 
@@ -213,8 +224,10 @@ var CameraRollView = React.createClass({
       newState.assets = this.state.assets.concat(assets);
       newState.dataSource = this.state.dataSource.cloneWithRows(
         // $FlowFixMe(>=0.41.0)
+        groupByEveryN(newState.assets, this.props.imagesPerRow)
       );
     }
+
     this.setState(newState);
   },
 
@@ -225,3 +238,26 @@ var CameraRollView = React.createClass({
   },
 });
 
+var styles = StyleSheet.create({
+  row: {
+    marginTop : 30,
+    paddingTop: 30,
+    flexDirection: 'row',
+    flex: 1,
+  },
+  url: {
+    fontSize: 9,
+    marginBottom: 14,
+  },
+  image: {
+    margin: 4,
+  },
+  info: {
+    flex: 1,
+  },
+  container: {
+    flex: 1,
+  },
+});
+
+module.exports = CameraRollView;

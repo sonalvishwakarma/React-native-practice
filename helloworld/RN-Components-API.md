@@ -3,7 +3,7 @@
 Touches --
 Button --
 ListView --
-MapView -- ? Issues
+MapView -- ? IssuesRCTMap
 ScrollView--
 WebView--
 RefreshControl
@@ -13,10 +13,10 @@ ActivityIndicator --
 Switch --
 Modal --
 Picker --
-ProgressBarAndroid -- Modify?
+ProgressBarAndroid --
 sectionlist
 toolbarandroid --
-ViewPagerAndroid -- Modify?
+ViewPagerAndroid --
 
 #API--
 DatePickerAndroid -- Reactnativedatepicker
@@ -25,7 +25,6 @@ asyncstorage --
 Cameraroll -?
 Geolocation -- run on real device
 ToastAndroid --
-Keyboard
 NetInfo--
 Animated
 

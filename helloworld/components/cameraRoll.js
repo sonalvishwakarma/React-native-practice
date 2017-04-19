@@ -1,58 +1,23 @@
+import React, { Component } from 'react';
+import {StyleSheet,Text,View,TouchableOpacity,TouchableHighlight,Image,CameraRoll} from 'react-native';
+import CameraRollView from './CameraRollView01.js';
+import AssetScaledImageExampleView from './AssetScaledImageExample01.js';
 
-const React = require('react');
-const ReactNative = require('react-native');
-const {
-  CameraRoll,
-  Image,
-  Slider,
-  StyleSheet,
-  Switch,
-  Text,
-  View,
-  TouchableOpacity
-} = ReactNative;
+export default class CameraRollExample extends Component {
 
-const invariant = require('fbjs/lib/invariant');
+  constructor(props){
+    super(props);
 
-const CameraRollView = require('./CameraRollView.js');
-
-const AssetScaledImageExampleView = require('./AssetScaledImageExample.js');
-
-//export default class CameraRollExample extends Component {
-class CameraRollExample extends React.Component {
-  state = {
-    groupTypes: 'SavedPhotos',
-    sliderValue: 1,
-    bigImages: true,
-  };
-  _cameraRollView: ?CameraRollView;
-  render() {
-    return (
-      <View>
-        <Switch
-          onValueChange={this._onSwitchChange}
-          value={this.state.bigImages}
-        />
-        <Text>{(this.state.bigImages ? 'Big' : 'Small') + ' Images'}</Text>
-        <Slider
-          value={this.state.sliderValue}
-          onValueChange={this._onSliderChange}
-        />
-        <Text>{'Group Type: ' + this.state.groupTypes}</Text>
-        <CameraRollView
-          ref={(ref) => { this._cameraRollView = ref; }}
-          batchSize={20}
-          groupTypes={this.state.groupTypes}
-          renderImage={this._renderImage}
-        />
-      </View>
-    );
+    this.state = {
+      groupTypes : 'SavedPhotos'
+    };
   }
 
   loadAsset = (asset) => {
     if (this.props.navigator) {
       this.props.navigator.push({
         title: 'Camera Roll Image',
+        component: AssetScaledImageExampleView,
         backButtonTitle: 'Back',
         passProps: { asset: asset },
       });
@@ -60,7 +25,6 @@ class CameraRollExample extends React.Component {
   };
 
   _renderImage = (asset) => {
-    const imageSize = this.state.bigImages ? 150 : 75;
     const imageStyle = [styles.image, {width: imageSize, height: imageSize}];
     const {location} = asset.node;
     const locationStr = location ? JSON.stringify(location) : 'Unknown location';
@@ -82,26 +46,39 @@ class CameraRollExample extends React.Component {
     );
   };
 
-  _onSliderChange = (value) => {
-    const options = CameraRoll.GroupTypesOptions;
-    const index = Math.floor(value * options.length * 0.99);
-    const groupTypes = options[index];
-    if (groupTypes !== this.state.groupTypes) {
-      this.setState({groupTypes: groupTypes});
-    }
-  };
+  _cameraRollView : ? CameraRollView;
 
-  _onSwitchChange = (value) => {
-    invariant(this._cameraRollView, 'ref should be set');
-    this._cameraRollView.rendererChanged();
-    this.setState({ bigImages: value });
-  };
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text>Camera Roll Example</Text>
+        <Text>{this.state.groupTypes}</Text>  
+        <CameraRollView
+          ref={(ref) => { this._cameraRollView = ref; }}
+          batchsize = {20}
+          groupTypes = {this.state.groupTypes}
+          renderImage={this._renderImage}
+        />
+      </View>
+    );
+  }
+
 }
 
 const styles = StyleSheet.create({
+   container: {
+    flex: 1,
+    width: undefined,
+    height: undefined,
+    backgroundColor:'transparent',
+    paddingTop:30,
+    marginTop: 30,
+  },
   row: {
     flexDirection: 'row',
     flex: 1,
+    marginTop : 30,
+    paddingTop: 30,
   },
   url: {
     fontSize: 9,
@@ -114,14 +91,3 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 });
-
-exports.title = 'Camera Roll';
-exports.description = 'Example component that uses CameraRoll to list user\'s photos';
-exports.examples = [
-  {
-    title: 'Photos',
-    render(): React.Element<any> { return <CameraRollExample />; }
-  }
-];
-
-module.exports = CameraRollExample;

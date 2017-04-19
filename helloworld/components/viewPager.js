@@ -57,7 +57,6 @@ export default class ViewPagerAndroidExample extends Component {
     } else {
       this.viewPager.setPageWithoutAnimation(page);
     }
-
     this.setState({page});
   };
 
@@ -80,6 +79,7 @@ export default class ViewPagerAndroidExample extends Component {
     var { page, animationsAreEnabled } = this.state;
     return (
       <View style={styles.container}>
+      
         <ViewPagerAndroid
           style={styles.viewPager}
           initialPage={0}
@@ -88,6 +88,7 @@ export default class ViewPagerAndroidExample extends Component {
           ref={viewPager => { this.viewPager = viewPager; }}>
           {pages}
         </ViewPagerAndroid>
+
         <View style={styles.buttons}>
           <Button title="Start" enabled={page > 0} onPress={() => this.go(0)}/>
           <Button title="Prev" enabled={page > 0} onPress={() => this.move(-1)}/>
