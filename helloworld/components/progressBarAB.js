@@ -11,14 +11,14 @@ export default class ProgressBarB extends Component {
     };
   }
 
-  componentDidMount(){
-    setTimeout(()=>{
-      this.updateProgress()
-    }, 10)
-  }
+  //componentDidMount(){
+  //   setTimeout(()=>{
+  //     this.updateProgress()
+  //   }, 10)
+  // }
 
   updateProgress = () => {
-    var start = this.state.start + 0.25
+    var start = this.state.start + 0.125
     this.setState({ start });
     if(start < this.state.distance){
       requestAnimationFrame(() => this.updateProgress());

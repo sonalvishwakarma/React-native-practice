@@ -5,7 +5,6 @@ import { Actions } from 'react-native-router-flux';
 import EditProfile from './editProfile.js';
 import homeImage from '../img/./baseImage.jpg';
 import MyActivityIndicator from '../components/./activityIndicator.js';
-import ProgressBarB from '../components/./progressBarAB.js';
 
 var loggedprofile;
 
@@ -88,9 +87,6 @@ class Profile extends Component {
             >
 
             <View style={styles.modal}>
-              <Text style={styles.text}>Progress Bar 2</Text>
-              <ProgressBarB />
-
               <EditProfile />
               <Button
                 onPress={this.closeModal}

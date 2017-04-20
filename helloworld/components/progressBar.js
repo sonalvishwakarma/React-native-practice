@@ -6,14 +6,14 @@ export default class MovingBar extends Component{
   constructor(props){
     super(props);
     this.state = {
-      progress: 0
+      progress: 0.01
     };
   }
 
   componentDidMount = () => {
     setInterval(
       () => {
-        var progressC = (this.state.progress + 0.01) % 1;
+        var progressC = (this.state.progress + 0.01) % 1 ;
         this.setState({progress: progressC})
       },100
     );
@@ -33,4 +33,3 @@ const styles = StyleSheet.create({
     width : 300
   }
 })
-

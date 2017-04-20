@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import {StyleSheet,Text,TextInput,Image,AsyncStorage, View, TouchableHighlight, 
-Modal, Button, ScrollView} from 'react-native';
+Modal, Button, ScrollView, Alert} from 'react-native';
 import MyDatePicker from '../components/./datePicker.js';
 import PickerDD from '../components/./pickerDropdown.js';
 import ProgressBarB from '../components/./progressBarAB.js';
 
 var editLoggedProfile;
 var userApi = 'https://api.myjson.com/bins/o4zz3';
-var userss = [];
+var userInfo = [];
+var allUsers = [];
 class EditProfile extends Component {
 
   constructor(props) {
@@ -72,10 +73,11 @@ class EditProfile extends Component {
       return response.json()
     })   
     .then( (json) => {
+      allUsers = json
       json.forEach( (value) => {
         if(value.UserID === editLoggedProfile.UserID){
-          userss.push(value)
-          this.setState({users : userss})
+          userInfo.push(value)
+          this.setState({users : userInfo})
           console.log(this.state.users,'users')
         }
       })
@@ -83,70 +85,116 @@ class EditProfile extends Component {
   }
 
   updateProfile = () => {
-    AsyncStorage.setItem('loggedUser', JSON.stringify(editLoggedProfile) );
-    this.setState({'loggedUser' : editLoggedProfile})
-  }
+    //AsyncStorage.setItem('loggedUser', JSON.stringify(editLoggedProfile) );
+    //this.setState({'loggedUser' : editLoggedProfile})
+
+    //if(this.state.fname !== '' && this.state.lname !== '' && this.state.contactNo !== '' && this.state.address !== '' )
+    //{
+      allUsers.push({
+        "UserID": editLoggedProfile.UserID,
+        "FirstName": this.state.fname,
+        "LastName": this.state.lname,
+        "EmailID": this.state.email,
+        "Password": this.state.password,
+        "ContactNo": this.state.contactNo || '',
+        "Address1": this.state.address || '',
+        "City": '',
+        "zip": ''
+      })
+      console.log(allUsers, 'allUsers')
+
+      fetch(userApi, {  
+          method: 'PUT',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(allUsers, editLoggedProfile.UserID )
+        }).then(function(res)
+        {
+          return res.json()
+          .then(function(json) {  
+            Alert.alert(
+                'Done',
+                'Successfully updated your profile'
+              )
+            console.log(json,'json')
+          }.bind(this))
+        }.bind(this));
+        
+      //}
+      //else{
+      //   Alert.alert(
+      //    'OOps!!',
+      //     'Not able to save your changes'  
+      //   )
+      // }
+    }
 
   render(){
     return (
       <View style={styles.container}>
+        <View>
+        <Text style={styles.text}>Progress Bar </Text>
+          <ProgressBarB  />
+        </View>  
         <Text style={{fontSize: 20,textAlign: 'center',color: 'firebrick'}}>Edit Profile</Text>
-
+        
         <ScrollView>
-          <Text>First Name</Text>
+          <Text><Text style= {{color : 'firebrick'}}>*</Text>First Name</Text>
           <TextInput underlineColorAndroid='transparent' 
             style = {styles.input} 
             autoCapitalize = 'none' 
             value={this.state.fname}
-            onChange={this.handleFirstName}
+            onChangeText={this.handleFirstName}
           />
 
-          <Text>Last Name</Text>
+          <Text><Text style= {{color : 'firebrick'}}>*</Text>Last Name</Text>
           <TextInput underlineColorAndroid='transparent'
             style = {styles.input}
             autoCapitalize = 'none'
             value={this.state.lname}
-            onChange={this.handleLastName}
+            onChangeText={this.handleLastName}
           />
 
-          <Text>Email</Text>
+          <Text><Text style= {{color : 'firebrick'}}>*</Text>Email</Text>
           <TextInput underlineColorAndroid='transparent'
             style = {styles.input}
             autoCapitalize = 'none'
             editable = {false}
             value={this.state.email}
-            onChange={this.handleEmail}
+            onChangeText={this.handleEmail}
           />
 
-          <Text>Password</Text>
+          <Text><Text style= {{color : 'firebrick'}}>*</Text>Password</Text>
           <TextInput underlineColorAndroid='transparent'
             style = {styles.input}
             autoCapitalize = 'none'
             editable = {false}
             value={this.state.password}
-            onChange={this.handlePassword}
+            onChangeText={this.handlePassword}
           />
 
           <Text>Date of Birth</Text>
           <MyDatePicker/>
 
-          <Text>Contact No</Text>
+          <Text><Text style= {{color : 'firebrick'}}>*</Text>Contact No</Text>
           <TextInput underlineColorAndroid='transparent'
             style = {styles.input}
             autoCapitalize = 'none'
             keyboardType = 'numeric'
             maxLength={10}
             value={this.state.contactNo}
-            onChange={this.handleContactNumber}
+            onChangeText={this.handleContactNumber}
           />
 
-          <Text>Address</Text>
+          <Text><Text style= {{color : 'firebrick'}}>*</Text>Address</Text>
           <TextInput underlineColorAndroid='transparent'
             style = {styles.input}
             autoCapitalize = 'none'
             numberOfLines={2}
             value={this.state.address}
-            onChange={this.handleAddress}
+            onChangeText={this.handleAddress}
           />
 
           <Text>City</Text>

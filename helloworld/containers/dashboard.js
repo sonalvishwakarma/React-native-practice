@@ -32,7 +32,6 @@ class Dashboard extends Component {
     return (
       <Image source={homeImage} style={styles.container}>
         <View>
-          <Text>GeoLocation</Text> 
           
         </View>
 
