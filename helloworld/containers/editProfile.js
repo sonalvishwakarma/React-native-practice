@@ -90,38 +90,54 @@ class EditProfile extends Component {
 
     //if(this.state.fname !== '' && this.state.lname !== '' && this.state.contactNo !== '' && this.state.address !== '' )
     //{
-      allUsers.push({
-        "UserID": editLoggedProfile.UserID,
-        "FirstName": this.state.fname,
-        "LastName": this.state.lname,
-        "EmailID": this.state.email,
-        "Password": this.state.password,
-        "ContactNo": this.state.contactNo || '',
-        "Address1": this.state.address || '',
-        "City": '',
-        "zip": ''
-      })
-      console.log(allUsers, 'allUsers')
 
-      fetch(userApi, {  
-          method: 'PUT',
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(allUsers, editLoggedProfile.UserID )
-        }).then(function(res)
-        {
-          return res.json()
-          .then(function(json) {  
-            Alert.alert(
-                'Done',
-                'Successfully updated your profile'
-              )
-            console.log(json,'json')
-          }.bind(this))
-        }.bind(this));
-        
+    fetch(userApi)
+    .then( (response) => {
+      return response.json()
+    })   
+    .then( (json) => {
+      allUsers = json
+      json.forEach( (value) => {
+        if(value.UserID === editLoggedProfile.UserID){
+          userInfo.push(value)
+          this.setState({users : userInfo})
+          console.log(this.state.users,'users')
+        }
+      })
+    });
+
+    var data = {
+      "FirstName": this.state.fname,
+      "LastName": this.state.lname,
+      "EmailID": this.state.email,
+      "Password": this.state.password,
+      "ContactNo": this.state.contactNo || '',
+      "Address1": this.state.address || '',
+      "City": '',
+      "zip": ''
+    }
+    allUsers.push(data)
+    console.log(allUsers, 'allUsers')
+
+    fetch(userApi, {  
+      method: 'PUT',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(allUsers,editLoggedProfile.UserID )
+      }).then(function(res)
+      {
+        return res.json()
+        .then(function(json) {  
+          Alert.alert(
+              'Done',
+              'Successfully updated your profile'
+            )
+          console.log(json,'json')
+        }.bind(this))
+      }.bind(this));
+      
       //}
       //else{
       //   Alert.alert(
