@@ -9,6 +9,7 @@ var editLoggedProfile;
 var userApi = 'https://api.myjson.com/bins/o4zz3';
 var userInfo = [];
 var allUsers = [];
+var data;
 class EditProfile extends Component {
 
   constructor(props) {
@@ -73,7 +74,6 @@ class EditProfile extends Component {
       return response.json()
     })   
     .then( (json) => {
-      allUsers = json
       json.forEach( (value) => {
         if(value.UserID === editLoggedProfile.UserID){
           userInfo.push(value)
@@ -82,7 +82,8 @@ class EditProfile extends Component {
         }
       })
     });
-  }
+  };
+
 
   updateProfile = () => {
     //AsyncStorage.setItem('loggedUser', JSON.stringify(editLoggedProfile) );
@@ -90,62 +91,64 @@ class EditProfile extends Component {
 
     //if(this.state.fname !== '' && this.state.lname !== '' && this.state.contactNo !== '' && this.state.address !== '' )
     //{
-
     fetch(userApi)
     .then( (response) => {
       return response.json()
     })   
     .then( (json) => {
-      allUsers = json
-      json.forEach( (value) => {
-        if(value.UserID === editLoggedProfile.UserID){
-          userInfo.push(value)
-          this.setState({users : userInfo})
-          console.log(this.state.users,'users')
-        }
+      allUsers = json;
+      userId = editLoggedProfile.UserID;
+
+      var UserData = allUsers.filter( (value) => {
+        return value.UserID === userId;
       })
+
+      data = {
+        "UserID" : editLoggedProfile.UserID,
+        "FirstName": this.state.fname,
+        "LastName": this.state.lname,
+        "EmailID": this.state.email,
+        "Password": this.state.password,
+        "ContactNo": this.state.contactNo || '',
+        "Address1": this.state.address || '',
+        "City": '',
+        "zip": '',
+      }
+
+      var copy = UserData.assign({}, data);
+      console.log(copy,'copy');
+
+      allUsers.concat(copy)
+      console.log(allUsers, 'mergeArray')
+
+      fetch(userApi, {  
+        method: 'PUT',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(allUsers)
+        }).then(function(res)
+        {
+          return res.json()
+          .then(function(json) {  
+            Alert.alert(
+                'Done',
+                'Successfully updated your profile'
+              )
+            console.log(json,'json')
+          }.bind(this))
+        }.bind(this));
     });
 
-    var data = {
-      "FirstName": this.state.fname,
-      "LastName": this.state.lname,
-      "EmailID": this.state.email,
-      "Password": this.state.password,
-      "ContactNo": this.state.contactNo || '',
-      "Address1": this.state.address || '',
-      "City": '',
-      "zip": ''
-    }
-    allUsers.push(data)
-    console.log(allUsers, 'allUsers')
-
-    fetch(userApi, {  
-      method: 'PUT',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(allUsers,editLoggedProfile.UserID )
-      }).then(function(res)
-      {
-        return res.json()
-        .then(function(json) {  
-          Alert.alert(
-              'Done',
-              'Successfully updated your profile'
-            )
-          console.log(json,'json')
-        }.bind(this))
-      }.bind(this));
-      
-      //}
-      //else{
-      //   Alert.alert(
-      //    'OOps!!',
-      //     'Not able to save your changes'  
-      //   )
-      // }
-    }
+    //}
+    //else{
+    //   Alert.alert(
+    //    'OOps!!',
+    //     'Not able to save your changes'  
+    //   )
+    // }
+  }
 
   render(){
     return (

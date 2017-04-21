@@ -50,14 +50,9 @@ class DashboardComp extends Component {
             NetInfo
           </Text>
         </TouchableHighlight>
-         <TouchableHighlight style={styles.button} onPress = {() => Actions.camera()} underlayColor='midnightblue'>
+        <TouchableHighlight style={styles.button} onPress = {() => Actions.camera()} underlayColor='midnightblue'>
           <Text style={styles.welcome}>
             CameraRoll
-          </Text>
-        </TouchableHighlight>
-        <TouchableHighlight style={styles.button} onPress = {() => Actions.camera1()} underlayColor='midnightblue'>
-          <Text style={styles.welcome}>
-            CameraRoll 1
           </Text>
         </TouchableHighlight>
       </View>

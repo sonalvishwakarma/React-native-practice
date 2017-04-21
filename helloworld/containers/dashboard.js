@@ -32,7 +32,11 @@ class Dashboard extends Component {
     return (
       <Image source={homeImage} style={styles.container}>
         <View>
-          
+          <TouchableHighlight style={styles.button} onPress={() => Actions.listofuser()} >
+            <Text style={styles.welcome}>
+              Users
+            </Text>
+          </TouchableHighlight>
         </View>
 
         <MyActivityIndicator/>
