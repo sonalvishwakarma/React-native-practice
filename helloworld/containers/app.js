@@ -15,6 +15,8 @@ import InterNetInfo from '../components/./netInfo.js';
 import GeoLocationInfo from '../components/./geoLocation.js';
 import CameraRollPic from '../components/./camera.js';
 import ListOfUser from './listOfUser.js';
+import ImageEditor from '../components/./imageEditor.js';
+import RNImagePicker from '../components/./imagePicker.js';
 
 class App extends Component {
   render(){
@@ -36,6 +38,8 @@ class App extends Component {
           <Scene key="geolocation" component={GeoLocationInfo} title="Geo Location"/>
           <Scene key="camera" component={CameraRollPic} title="Camera Roll"/>
           <Scene key="listofuser" component={ListOfUser} title="List of User"/>
+          <Scene key="imgEditor" component={ImageEditor} title="Image Editor"/>
+          <Scene key="imgPicker" component={RNImagePicker} title="Image Picker"/>
         </Scene>
       </Router>
     );

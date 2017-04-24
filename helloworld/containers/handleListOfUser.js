@@ -9,8 +9,10 @@ export default HandleListOfUser  = (props) => {
 		    	dataSource = {props.dataSource}
 	        renderRow = {
 	        	(data) => (
-	        	  <Text style={styles.listItem}>
-	        	   {data.FirstName}
+	        	  <Text style={styles.card}>
+								<Text style={styles.bigblue}>{data.FirstName}</Text>,
+								<Text style={styles.bigblue}>{data.LastName}</Text>  
+								<Text style={styles.red}>{data.EmailID}</Text>
 	        	  </Text>          
 	        	)
 	 	      } 
@@ -30,8 +32,22 @@ const styles = StyleSheet.create ({
 	  fontSize: 20,
 	  textAlign: 'center',
 	},
+	card: {
+	  backgroundColor: 'white',
+	  width: (200 / 2) - 50,
+	  height: 300,
+	  marginLeft: 10,
+	  marginTop: 10
+	},
 	img : {
 		height : 200,
 		width : 250
-	}
+	},
+	bigblue: {
+    color: 'blue',
+    fontWeight: 'bold',
+  },
+  red: {
+    color: 'green',
+  },
 })

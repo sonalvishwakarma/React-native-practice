@@ -55,6 +55,16 @@ class DashboardComp extends Component {
             CameraRoll
           </Text>
         </TouchableHighlight>
+        <TouchableHighlight style={styles.button} onPress = {() => Actions.imgEditor()} underlayColor='midnightblue'>
+          <Text style={styles.welcome}>
+            Image Editor
+          </Text>
+        </TouchableHighlight>
+        <TouchableHighlight style={styles.button} onPress = {() => Actions.imgPicker()} underlayColor='midnightblue'>
+          <Text style={styles.welcome}>
+            Image Picker
+          </Text>
+        </TouchableHighlight>
       </View>
     );
   }
