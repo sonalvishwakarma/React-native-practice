@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {StyleSheet,Text,TextInput,Image,AsyncStorage, View, TouchableHighlight, 
 Modal, Button, ScrollView, Alert} from 'react-native';
+import { Actions } from 'react-native-router-flux';
 import MyDatePicker from '../components/./datePicker.js';
 import PickerDD from '../components/./pickerDropdown.js';
 import ProgressBarB from '../components/./progressBarAB.js';
@@ -86,11 +87,9 @@ class EditProfile extends Component {
 
 
   updateProfile = () => {
-    //AsyncStorage.setItem('loggedUser', JSON.stringify(editLoggedProfile) );
-    //this.setState({'loggedUser' : editLoggedProfile})
 
-    //if(this.state.fname !== '' && this.state.lname !== '' && this.state.contactNo !== '' && this.state.address !== '' )
-    //{
+    if(this.state.fname !== '' && this.state.lname !== '' && this.state.contactNo !== '' && this.state.address !== '' )
+    {
     fetch(userApi)
     .then( (response) => {
       return response.json()
@@ -99,8 +98,11 @@ class EditProfile extends Component {
       allUsers = json;
       userId = editLoggedProfile.UserID;
 
-      var UserData = allUsers.filter( (value) => {
-        return value.UserID === userId;
+      allUsers.forEach(function(val, index) {
+        if(val.UserID === userId){
+          var oldData =  allUsers.slice(index) 
+          allUsers.pop(oldData);
+        }
       })
 
       data = {
@@ -114,12 +116,9 @@ class EditProfile extends Component {
         "City": '',
         "zip": '',
       }
+      console.log(data, 'data')
 
-      var copy = UserData.assign({}, data);
-      console.log(copy,'copy');
-
-      allUsers.concat(copy)
-      console.log(allUsers, 'mergeArray')
+      allUsers.push(data)
 
       fetch(userApi, {  
         method: 'PUT',
@@ -132,22 +131,25 @@ class EditProfile extends Component {
         {
           return res.json()
           .then(function(json) {  
+            AsyncStorage.setItem('loggedUser', JSON.stringify(data) );
+            this.setState({'loggedUser' : data})
             Alert.alert(
-                'Done',
-                'Successfully updated your profile'
-              )
-            console.log(json,'json')
-          }.bind(this))
-        }.bind(this));
+              'Done',
+              'Successfully updated your profile'
+            )
+          Actions.profile()
+          console.log(json,'json')
+        }.bind(this))
+      }.bind(this));
     });
 
-    //}
-    //else{
-    //   Alert.alert(
-    //    'OOps!!',
-    //     'Not able to save your changes'  
-    //   )
-    // }
+    }
+    else{
+      Alert.alert(
+        'OOps!!',
+        'Not able to save your changes'  
+      )
+    }
   }
 
   render(){

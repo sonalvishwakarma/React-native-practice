@@ -33,11 +33,10 @@ class ListOfUser extends Component {
 
     userlist.forEach(function(car, index){
 
-      if(car.UserID ){
-       	var rmUser = userlist.slice(index,1);
+      if(car.UserID){
+       	var rmUser = userlist.slice(index);
        	userlist.pop(rmUser);
-       	console.log(rmUser, 'rmUser')
-       	console.log(userlist, 'userlist')
+
        	fetch(userApi, {  
         	method: 'PUT',
         	headers: {
@@ -59,7 +58,7 @@ class ListOfUser extends Component {
 	render(){
 		return (
 		  <View>
-		    <HandleListOfUser dataSource={this.state.dataSource} removeUser={this.removeUser}/> 
+		    <HandleListOfUser dataSource={this.state.dataSource}/> 
 		  </View>     
 		)
 	}

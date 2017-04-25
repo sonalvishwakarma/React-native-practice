@@ -7,18 +7,18 @@ export default HandleListOfUser  = (props) => {
 	    <ScrollView>
 		    <ListView 
 		    	dataSource = {props.dataSource}
-	        enableEmptySections={true}
 	        renderRow = {
 	        	(data) => (
 	        	  <View style={styles.card}>
-								<Text style={styles.bigblue}>Name : -{data.FirstName} {data.LastName}</Text>  
-								<Text style={styles.red}>Email : - {data.EmailID}</Text>
+								<Text style={styles.bigblue}>Task : -</Text>  
+
 			        	  <TouchableHighlight style={styles.button} underlayColor='midnightblue' 
-			        	     onPress= {() => props.removeUser(data.UserID)}>
+			        	    >
 					          <Text style={styles.welcome}>
 					            delete
 					          </Text>
 					        </TouchableHighlight>  
+
 			        </View>    
 	        	)
 	 	      } 
