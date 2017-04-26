@@ -5,7 +5,7 @@ import PickerDD from '../components/./pickerDropdown.js';
 
 export default HandleProfile = (props) => {
   return (
-    <View style={styles.container}>
+    <View >
       <Text style={{fontSize: 20,textAlign: 'center',color: 'firebrick'}}>Edit Profile</Text>
 
       <ScrollView>
@@ -59,15 +59,10 @@ export default HandleProfile = (props) => {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  profileForm: {
     justifyContent: 'center',
     alignItems: 'center',
-    width: undefined,
-    height: undefined,
-    backgroundColor:'transparent',
-    paddingTop:10,
-    marginTop: 10,
+    marginTop: 50,
   },
   welcome: {
     fontSize: 20,

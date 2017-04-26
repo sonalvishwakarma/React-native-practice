@@ -6,6 +6,9 @@ import homeImage from '../img/./baseImage.jpg';
 import MyActivityIndicator from '../components/./activityIndicator.js';
 import SimpleSlider from '../components/./simpleSlider.js';
 import GeoLocationInfo from '../components/./geoLocation.js';
+import ToolBarA from '../components/./toolBar.js';
+
+var logged;
 
 class Dashboard extends Component {
 
@@ -15,52 +18,84 @@ class Dashboard extends Component {
   
   componentDidMount = () => {
     AsyncStorage.getItem('loggedUser').then((value) => {
+      logged = value;
       console.log(value, 'getLoggeduser')
     });
   }
 
   logout = () => {
-    if(AsyncStorage.removeItem('loggedUser')){
-      Alert.alert(
+    AsyncStorage.getItem('loggedUser').then((value) => {
+      logged = value;
+      console.log(logged, 'logged')
+      if(logged !== "" && logged !== null){
+        var aa =  AsyncStorage.removeItem('loggedUser')
+        Alert.alert(
         'Bye bye',         
         'Successfully logout')
-      Actions.home()
-    }
+        console.log(aa, 'rmLoggeduser')
+        Actions.home()
+      }
+      else {
+        Alert.alert(
+        'Bye bye',         
+        'Successfully logout')
+        Actions.home()
+      }
+    });  
   }
 
   render() {
     return (
       <Image source={homeImage} style={styles.container}>
         <View>
-          <TouchableHighlight style={styles.button} onPress={() => Actions.listofuser()} >
+          <ToolBarA/>
+        </View>
+        <MyActivityIndicator/>
+
+        {
+          (logged !== "" && logged !== null) ? 
+          ( <TouchableHighlight style={styles.button} onPress={() => Actions.profile()} underlayColor='midnightblue'>
+            <Text style={styles.welcome}>
+              Profile
+            </Text></TouchableHighlight>) : 
+          (<TouchableHighlight style={styles.button} onPress={() => Actions.login()}  underlayColor='midnightblue'>
+            <Text style={styles.welcome}>
+              Login
+            </Text>
+          </TouchableHighlight>)
+        }
+
+        {
+          (logged !== "" && logged !== null) ? 
+          (<TouchableHighlight style={styles.button} onPress={this.logout} underlayColor='midnightblue'>
+            <Text style={styles.welcome}>
+              Logout
+            </Text></TouchableHighlight>) : 
+          (<TouchableHighlight style={styles.button} onPress={() => Actions.signUp()}  underlayColor='midnightblue'>
+            <Text style={styles.welcome}>
+              SignUp
+            </Text>
+          </TouchableHighlight>)
+        }
+
+        {
+          (logged !== "" && logged !== null) ? 
+          (<TouchableHighlight style={styles.button} onPress={() => Actions.listofuser()} >
             <Text style={styles.welcome}>
               Users
             </Text>
-          </TouchableHighlight>
-        </View>
+          </TouchableHighlight>) : null
+        }
 
-        <MyActivityIndicator/>
-
-        <TouchableHighlight style={styles.button} onPress={() => Actions.profile()} >
-          <Text style={styles.welcome}>
-            Profile
-          </Text>
-        </TouchableHighlight>
-        <TouchableHighlight style={styles.button} onPress={this.logout} >
-          <Text style={styles.welcome}>
-            Logout
-          </Text>
-        </TouchableHighlight>
+        
       </Image>
     );
   }
 }
 
 const styles = StyleSheet.create({
-   container: {
+  container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     width: undefined,
     height: undefined,
     backgroundColor:'transparent',

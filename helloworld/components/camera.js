@@ -28,15 +28,14 @@ export default class CameraRollPic extends Component {
         }}
         style={styles.preview}
         aspect={Camera.constants.Aspect.fill}
-        captureTarget={Camera.constants.CaptureTarget.disk}
+        captureTarget={Camera.constants.CaptureTarget.disk}>
+      <TouchableHighlight
+        style={styles.capture}
+        onPress={this.takePicture.bind(this)}
+        underlayColor="rgba(255, 255, 255, 0.5)"
       >
-        <TouchableHighlight
-          style={styles.capture}
-          onPress={this.takePicture.bind(this)}
-          underlayColor="rgba(255, 255, 255, 0.5)"
-        >
-          <View />
-        </TouchableHighlight>
+      <View />
+      </TouchableHighlight>
       </Camera>
     );
   }
@@ -50,8 +49,8 @@ export default class CameraRollPic extends Component {
         />
         <Text
           style={styles.cancel}
-          onPress={() => this.setState({ imagePath: null })}
-        >Cancel
+          onPress={() => this.setState({ imagePath: null })}>
+          Cancel
         </Text>
       </View>
     );

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import {StyleSheet,Text,Image, DatePickerAndroid, Alert} from 'react-native';
+import {StyleSheet,Text,Image, DatePickerAndroid,View, Alert} from 'react-native';
 import HandleSignUp from './handleSignUp.js';
 import { Actions } from 'react-native-router-flux';
 import homeImage from '../img/./baseImage.jpg';
 import DatePicker from 'react-native-datepicker';
-
+import ToolBarA from '../components/./toolBar.js';
 
 var userApi = 'https://api.myjson.com/bins/o4zz3';
 var users = [];
@@ -110,6 +110,9 @@ class SignUp extends Component {
   render(){
     return (
       <Image source={homeImage} style={styles.container}>
+       <View>
+          <ToolBarA/>
+        </View>
         <HandleSignUp
           handleFirstName = {this.handleFirstName}
           handleLastName = {this.handleLastName}
@@ -126,8 +129,6 @@ class SignUp extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     width: undefined,
     height: undefined,
     backgroundColor:'transparent',

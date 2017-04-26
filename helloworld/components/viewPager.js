@@ -7,8 +7,6 @@ import { Image,
   View,
   ViewPagerAndroid,Button} from 'react-native';
 
-//import type { ViewPagerScrollState } from 'ViewPagerAndroid';
-
 var PAGES = 5;
 var Images = [
   'https://apod.nasa.gov/apod/image/1410/20141008tleBaldridge001h990.jpg',
@@ -31,20 +29,6 @@ export default class ViewPagerAndroidExample extends Component {
       }
     };  
   }
-
-  // onPageSelected = (e) => {
-  //  this.setState({page: e.nativeEvent.position});
-  //};
-
-  //onPageScroll = (e) => {
-  // this.setState({progress: e.nativeEvent});
-  //};
-
-  //onPageScrollStateChanged = (state : ViewPagerScrollState) => {
-  //  this.setState({scrollState: state});
-  //};
-
-  // onPageScroll={this.onPageScroll} /onPageSelected={this.onPageSelected}/ onPageScrollStateChanged={this.onPageScrollStateChanged}
 
   move = (delta) => {
     var page = this.state.page + delta;
@@ -73,7 +57,7 @@ export default class ViewPagerAndroidExample extends Component {
             style={styles.image}
             source={{uri: Images[i]}}
           />
-       </View>
+        </View>
       );
     }
     var { page, animationsAreEnabled } = this.state;

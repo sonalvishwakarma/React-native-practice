@@ -30,8 +30,8 @@ export default HandleListOfUser  = (props) => {
 
 const styles = StyleSheet.create ({
 	listContainer: {
-	  paddingTop:50,
-	  marginTop: 50,
+	  paddingTop: 20,
+	  marginTop: 20,
     height: 500,	
 	},
 	listItem: {
@@ -44,7 +44,7 @@ const styles = StyleSheet.create ({
     color: 'red',
   },
 	card: {
-	  backgroundColor: 'white',
+	  backgroundColor: 'burlywood',
 	  width: (800 / 2) - 50,
 	  height: 100,
 	  marginLeft: 10,

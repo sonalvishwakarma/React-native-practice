@@ -52,7 +52,7 @@ class Login extends Component {
             'Welcome',
             'Successfully logged in '
           )
-          Actions.dashboard()
+          Actions.home()
         }
       } 
     }
@@ -64,6 +64,9 @@ class Login extends Component {
   render(){
     return (
       <Image source={homeImage} style={styles.container} >
+        <View>
+          <ToolBarA/>
+        </View>
         <HandleLogin
           handleEmail = {this.handleEmail}
           handlePassword = {this.handlePassword}
@@ -77,13 +80,12 @@ class Login extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     width: undefined,
     height: undefined,
     backgroundColor:'transparent',
   },
-    welcome: {
+
+  welcome: {
     fontSize: 20,
     textAlign: 'center',
     margin: 10,

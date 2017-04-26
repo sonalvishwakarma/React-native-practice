@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+{/*import React, { Component } from 'react';
 import { Image,
   StyleSheet,
   Text,
@@ -151,4 +151,4 @@ var styles = StyleSheet.create({
   viewPager: {
     flex: 1,
   },
-});
+});*/}

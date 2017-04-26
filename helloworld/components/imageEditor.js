@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+{/*import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
@@ -94,4 +94,4 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#000',
   },
-});
+});*/}

@@ -4,7 +4,8 @@ import {StyleSheet,View,ListView,ScrollView,WebView,Text} from 'react-native';
 export default HandleListView  = (props) => {
 	return (
 	  <View style={styles.listContainer}>
-	    <WebView style={styles.img} source={{uri : 'http://shfcs.org/en/wp-content/uploads/2015/11/MedRes_Product-presentation-2.jpg'}}
+	    <WebView style={styles.img} 
+	      source={{uri : 'https://www.w3schools.com/images/w3schools_green.jpg'}}
 	    />  
 	    <ScrollView>
 		    <ListView 
@@ -24,14 +25,14 @@ export default HandleListView  = (props) => {
 
 const styles = StyleSheet.create ({
 	listContainer: {
-	  paddingTop:50,
-	  marginTop: 50,
+	  paddingTop:20,
+	  marginTop: 20,
     height: 500,
 	},
 	listItem: {
-	  fontSize: 30,
+	  fontSize: 20,
 	  fontWeight: 'bold',
-	  textAlign: 'center',
+	  color : 'darkolivegreen',
 	},
 	img : {
 		height : 200,

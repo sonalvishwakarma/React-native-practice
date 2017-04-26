@@ -9,7 +9,6 @@ import Profile from './profile.js';
 import ListViewC from '../components/./listView.js';
 import MapViewC from '../components/./mapView.js';
 import ViewPagerAndroidExample from '../components/./viewPager.js';
-import Section from '../components/./sectionList.js';
 import ToolBarA from '../components/./toolBar.js';
 import InterNetInfo from '../components/./netInfo.js';
 import GeoLocationInfo from '../components/./geoLocation.js';
@@ -32,7 +31,6 @@ class App extends Component {
           <Scene key="listView" component={ListViewC} title="List View" />
           <Scene key="mapView" component={MapViewC} title="Map View" />
           <Scene key="pager" component={ViewPagerAndroidExample} title="View Pager" />
-          <Scene key="section" component={Section} title="Section List" />
           <Scene key="toolbar" component={ToolBarA} title="ToolBar"/>
           <Scene key="netInfo" component={InterNetInfo} title="Net Info"/>
           <Scene key="geolocation" component={GeoLocationInfo} title="Geo Location"/>

@@ -1,71 +1,63 @@
 import React, { Component } from 'react';
-import {StyleSheet,Text,View, TouchableHighlight, ToastAndroid} from 'react-native';
+import {StyleSheet,Text,View, TouchableHighlight,Image, ToastAndroid} from 'react-native';
 import {Actions} from 'react-native-router-flux';
-import GeoLocationInfo from '../components/./geoLocation.js';
+import homeImage from '../img/./homeImage.jpg';
 
 class DashboardComp extends Component {
 
   componentDidMount (){
-     ToastAndroid.showWithGravity('Components list with example', ToastAndroid.SHORT, ToastAndroid.TOP)
+    ToastAndroid.showWithGravity('Components list with example', ToastAndroid.SHORT, ToastAndroid.TOP)
   }
 
   render(){
     return (
-      <View style={styles.container}>
+      <Image source={homeImage} style={styles.container}>
         <Text style={styles.welcome}>
           Components
         </Text>
         <TouchableHighlight style={styles.button} onPress= {() => Actions.listView()} underlayColor='midnightblue'>
-          <Text style={styles.welcome}>
+          <Text style={styles.text}>
             List View
           </Text>
         </TouchableHighlight>
         <TouchableHighlight style={styles.button} onPress= {() => Actions.mapView()} underlayColor='midnightblue'>
-          <Text style={styles.welcome}>
+          <Text style={styles.text}>
             Map View
           </Text>
         </TouchableHighlight>
         <TouchableHighlight style={styles.button} onPress = {() => Actions.pager()} underlayColor='midnightblue'>
-          <Text style={styles.welcome}>
+          <Text style={styles.text}>
             View Pager
           </Text>
         </TouchableHighlight>
-        <TouchableHighlight style={styles.button} onPress = {() => Actions.section()} underlayColor='midnightblue'>
-          <Text style={styles.welcome}>
-            SectionList
-          </Text>
-        </TouchableHighlight>
+      
         <TouchableHighlight style={styles.button} onPress = {() => Actions.toolbar()} underlayColor='midnightblue'>
-          <Text style={styles.welcome}>
+          <Text style={styles.text}>
             ToolBar
           </Text>
         </TouchableHighlight>
         <TouchableHighlight style={styles.button} onPress = {() => Actions.geolocation()} underlayColor='midnightblue'>
-          <Text style={styles.welcome}>
+          <Text style={styles.text}>
             Geo Location
           </Text>
         </TouchableHighlight>
         <TouchableHighlight style={styles.button} onPress = {() => Actions.netInfo()} underlayColor='midnightblue'>
-          <Text style={styles.welcome}>
+          <Text style={styles.text}>
             NetInfo
           </Text>
         </TouchableHighlight>
         <TouchableHighlight style={styles.button} onPress = {() => Actions.camera()} underlayColor='midnightblue'>
-          <Text style={styles.welcome}>
+          <Text style={styles.text}>
             CameraRoll
           </Text>
         </TouchableHighlight>
-        <TouchableHighlight style={styles.button} onPress = {() => Actions.imgEditor()} underlayColor='midnightblue'>
-          <Text style={styles.welcome}>
-            Image Editor
-          </Text>
-        </TouchableHighlight>
+        
         <TouchableHighlight style={styles.button} onPress = {() => Actions.imgPicker()} underlayColor='midnightblue'>
-          <Text style={styles.welcome}>
+          <Text style={styles.text}>
             Image Picker
           </Text>
         </TouchableHighlight>
-      </View>
+      </Image>
     );
   }
 }
@@ -73,10 +65,21 @@ class DashboardComp extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'skyblue',
+    width: undefined,
+    height: undefined,
+    backgroundColor:'transparent',
+    marginTop : 10
   },
   welcome: {
+    fontSize: 30,
+    textAlign: 'center',
+    margin: 10,
+    color: 'green',
+    fontWeight: 'bold',
+  },
+  text: {
     fontSize: 20,
     textAlign: 'center',
     margin: 10,

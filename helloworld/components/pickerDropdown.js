@@ -14,7 +14,7 @@ class PickerDD extends Component {
 
 	//onValueChange = (ci) => {
   //  this.setState({
- //   	city : ci
+ 	//   	city : ci
   //  });
 	//}
 

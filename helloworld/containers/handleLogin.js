@@ -4,7 +4,7 @@ import ToolBarA from '../components/./toolBar.js';
 
 export default HandleLogin = (props) => {
   return (
-    <View>
+    <View style={styles.loginform}>
       <TextInput underlineColorAndroid='transparent'
         style = {styles.input}
         placeholder = 'Email'
@@ -29,17 +29,21 @@ export default HandleLogin = (props) => {
 }
 
 const styles = StyleSheet.create({
+  loginform : {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop : 50,
+  },
   input: {
     margin: 15,
     height: 40,
     width: 250,
-    borderColor: 'grey',
+    borderColor: 'royalblue',
     borderWidth: 1,
     color: 'black',
-
   },
   submit: {
-    backgroundColor: 'grey',
+    backgroundColor: 'royalblue',
     padding: 10,
     marginRight: 80,
     marginLeft: 80,

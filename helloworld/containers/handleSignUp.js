@@ -4,7 +4,7 @@ import {StyleSheet,Text,TextInput,View,TouchableHighlight,TouchableWithoutFeedba
 export default HandleSignUp = (props) => {
 
   return (
-    <View>       
+    <View style={styles.signUpform}>       
       <TextInput underlineColorAndroid='transparent'
         style = {styles.input}
         placeholder = 'First Name'
@@ -48,13 +48,10 @@ export default HandleSignUp = (props) => {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  signUpform : {
     justifyContent: 'center',
     alignItems: 'center',
-    width: undefined,
-    height: undefined,
-    backgroundColor:'transparent',
+    marginTop : 50,
   },
   welcome: {
     fontSize: 20,
@@ -66,12 +63,12 @@ const styles = StyleSheet.create({
     margin: 15,
     height: 40,
     width: 250,
-    borderColor: 'grey',
+    borderColor: 'royalblue',
     borderWidth: 1,
     color:'black'
   },
   submit: {
-    backgroundColor: 'grey',
+    backgroundColor: 'royalblue',
     padding: 10,
     marginRight: 80,
     marginLeft: 80,

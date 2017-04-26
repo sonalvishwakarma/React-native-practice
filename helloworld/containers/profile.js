@@ -5,6 +5,7 @@ import { Actions } from 'react-native-router-flux';
 import EditProfile from './editProfile.js';
 import homeImage from '../img/./baseImage.jpg';
 import MyActivityIndicator from '../components/./activityIndicator.js';
+import ToolBarA from '../components/./toolBar.js';
 
 var loggedprofile;
 
@@ -37,12 +38,15 @@ class Profile extends Component {
   render(){
     return (
       <Image source={homeImage} style={styles.container}>
+        <View>
+          <ToolBarA/>
+        </View>
         <StatusBar
           backgroundColor = "lightskyblue"
           barStyle = "light-content"
           hidden = {false}
         />
-        <View> 
+        <View style={styles.profileForm}>
           <Text>Edit profile</Text>
           <Switch
             onValueChange={(value) => this.setState({switchOn: value})}
@@ -52,9 +56,7 @@ class Profile extends Component {
             onTintColor = "#008000"
             value={this.state.switchOn}>
           </Switch>
-        </View>
 
-        <View>
           <Text style={styles.text}>
             First Name : - 
             {this.state.user.FirstName}
@@ -78,6 +80,7 @@ class Profile extends Component {
           }
 
         </View>
+        
         <View >
           <Modal 
             animationType = {"slide"}
@@ -103,12 +106,13 @@ class Profile extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'flex-start',
-    alignItems: 'center',
     width: undefined,
     height: undefined,
     backgroundColor:'transparent',
-    paddingTop:50,
+  },
+  profileForm: {
+    justifyContent: 'flex-start',
+    alignItems: 'center',
     marginTop: 50,
   },
   welcome: {
