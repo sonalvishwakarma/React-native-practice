@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {StyleSheet,View,Text,MapView} from 'react-native';
+import {View,Text,MapView} from 'react-native';
+import styles from '../css/./style.js';
 
 export default HandleMapView  = (props) => {
 
@@ -14,17 +15,3 @@ export default HandleMapView  = (props) => {
 	  </View>     
 	)
 }
-
-const styles = StyleSheet.create ({
-	listContainer: {
-	  paddingTop:50
-	},
-	map: {
-	  height : 400,
-	  marginTop : 80 ,	
-	  position: 'absolute',
-    top: 0,
-    left: 0, 
-    flex : 1
-	}
-})

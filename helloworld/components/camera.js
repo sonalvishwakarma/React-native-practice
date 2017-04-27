@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { StyleSheet,View,Dimensions,TouchableHighlight,Image,Text} from 'react-native';
+import {View,Dimensions,TouchableHighlight,Image,Text} from 'react-native';
 import Camera from 'react-native-camera';
+import styles from '../css/./style.js';
 
 export default class CameraRollPic extends Component {
 
@@ -58,40 +59,9 @@ export default class CameraRollPic extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View style={styles.cameraContainer}>
         {this.state.imagePath ? this.renderImage() : this.renderCamera()}
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#000',
-  },
-  preview: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-  },
-  capture: {
-    width: 70,
-    height: 70,
-    borderRadius: 35,
-    borderWidth: 5,
-    borderColor: '#FFF',
-    marginBottom: 15,
-  },
-  cancel: {
-    position: 'absolute',
-    right: 20,
-    top: 20,
-    backgroundColor: 'transparent',
-    color: '#FFF',
-    fontWeight: '600',
-    fontSize: 17,
-  }
-});

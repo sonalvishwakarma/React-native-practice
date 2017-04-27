@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import {StyleSheet,Text,View, TouchableHighlight,Image, ToastAndroid} from 'react-native';
+import {Text,View, TouchableHighlight,Image, ToastAndroid} from 'react-native';
 import {Actions} from 'react-native-router-flux';
 import homeImage from '../img/./homeImage.jpg';
+import ToolBarA from '../components/./toolBar.js';
+import styles from '../css/./style.js';
 
-class DashboardComp extends Component {
+export default class DashboardComp extends Component {
 
   componentDidMount (){
     ToastAndroid.showWithGravity('Components list with example', ToastAndroid.SHORT, ToastAndroid.TOP)
@@ -11,49 +13,52 @@ class DashboardComp extends Component {
 
   render(){
     return (
-      <Image source={homeImage} style={styles.container}>
-        <Text style={styles.welcome}>
+      <Image source={homeImage} style={styles.dashCompContainer}>
+        <View>
+          <ToolBarA/>
+        </View>
+        <Text style={styles.dashCompText}>
           Components
         </Text>
-        <TouchableHighlight style={styles.button} onPress= {() => Actions.listView()} underlayColor='midnightblue'>
-          <Text style={styles.text}>
+        <TouchableHighlight style={styles.compButton} onPress= {() => Actions.listView()} underlayColor='midnightblue'>
+          <Text style={styles.compText}>
             List View
           </Text>
         </TouchableHighlight>
-        <TouchableHighlight style={styles.button} onPress= {() => Actions.mapView()} underlayColor='midnightblue'>
-          <Text style={styles.text}>
+        <TouchableHighlight style={styles.compButton} onPress= {() => Actions.mapView()} underlayColor='midnightblue'>
+          <Text style={styles.compText}>
             Map View
           </Text>
         </TouchableHighlight>
-        <TouchableHighlight style={styles.button} onPress = {() => Actions.pager()} underlayColor='midnightblue'>
-          <Text style={styles.text}>
+        <TouchableHighlight style={styles.compButton} onPress = {() => Actions.pager()} underlayColor='midnightblue'>
+          <Text style={styles.compText}>
             View Pager
           </Text>
         </TouchableHighlight>
       
-        <TouchableHighlight style={styles.button} onPress = {() => Actions.toolbar()} underlayColor='midnightblue'>
-          <Text style={styles.text}>
+        <TouchableHighlight style={styles.compButton} onPress = {() => Actions.toolbar()} underlayColor='midnightblue'>
+          <Text style={styles.compText}>
             ToolBar
           </Text>
         </TouchableHighlight>
-        <TouchableHighlight style={styles.button} onPress = {() => Actions.geolocation()} underlayColor='midnightblue'>
-          <Text style={styles.text}>
+        <TouchableHighlight style={styles.compButton} onPress = {() => Actions.geolocation()} underlayColor='midnightblue'>
+          <Text style={styles.compText}>
             Geo Location
           </Text>
         </TouchableHighlight>
-        <TouchableHighlight style={styles.button} onPress = {() => Actions.netInfo()} underlayColor='midnightblue'>
-          <Text style={styles.text}>
+        <TouchableHighlight style={styles.compButton} onPress = {() => Actions.netInfo()} underlayColor='midnightblue'>
+          <Text style={styles.compText}>
             NetInfo
           </Text>
         </TouchableHighlight>
-        <TouchableHighlight style={styles.button} onPress = {() => Actions.camera()} underlayColor='midnightblue'>
-          <Text style={styles.text}>
+        <TouchableHighlight style={styles.compButton} onPress = {() => Actions.camera()} underlayColor='midnightblue'>
+          <Text style={styles.compText}>
             CameraRoll
           </Text>
         </TouchableHighlight>
         
-        <TouchableHighlight style={styles.button} onPress = {() => Actions.imgPicker()} underlayColor='midnightblue'>
-          <Text style={styles.text}>
+        <TouchableHighlight style={styles.compButton} onPress = {() => Actions.imgPicker()} underlayColor='midnightblue'>
+          <Text style={styles.compText}>
             Image Picker
           </Text>
         </TouchableHighlight>
@@ -61,34 +66,3 @@ class DashboardComp extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: undefined,
-    height: undefined,
-    backgroundColor:'transparent',
-    marginTop : 10
-  },
-  welcome: {
-    fontSize: 30,
-    textAlign: 'center',
-    margin: 10,
-    color: 'green',
-    fontWeight: 'bold',
-  },
-  text: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-    color: '#ffffff',
-  },
-  button : {
-    borderWidth: 1,
-    borderColor: 'transparent'
-  }
-});
-
-export default DashboardComp;

@@ -7,10 +7,11 @@ import MyActivityIndicator from '../components/./activityIndicator.js';
 import SimpleSlider from '../components/./simpleSlider.js';
 import GeoLocationInfo from '../components/./geoLocation.js';
 import ToolBarA from '../components/./toolBar.js';
+import styles from '../css/./style.js';
 
 var logged;
 
-class Dashboard extends Component {
+export default class Dashboard extends Component {
 
   constructor(props){
     super(props);
@@ -29,10 +30,10 @@ class Dashboard extends Component {
       console.log(logged, 'logged')
       if(logged !== "" && logged !== null){
         var aa =  AsyncStorage.removeItem('loggedUser')
-        Alert.alert(
-        'Bye bye',         
-        'Successfully logout')
-        console.log(aa, 'rmLoggeduser')
+          Alert.alert(
+          'Bye bye',         
+          'Successfully logout')
+          console.log(aa, 'rmLoggeduser')
         Actions.home()
       }
       else {
@@ -46,20 +47,21 @@ class Dashboard extends Component {
 
   render() {
     return (
-      <Image source={homeImage} style={styles.container}>
+      <Image source={homeImage} style={styles.dashboardContainer}>
         <View>
           <ToolBarA/>
         </View>
+        
         <MyActivityIndicator/>
 
         {
           (logged !== "" && logged !== null) ? 
           ( <TouchableHighlight style={styles.button} onPress={() => Actions.profile()} underlayColor='midnightblue'>
-            <Text style={styles.welcome}>
+            <Text style={styles.dashText}>
               Profile
             </Text></TouchableHighlight>) : 
           (<TouchableHighlight style={styles.button} onPress={() => Actions.login()}  underlayColor='midnightblue'>
-            <Text style={styles.welcome}>
+            <Text style={styles.dashText}>
               Login
             </Text>
           </TouchableHighlight>)
@@ -68,11 +70,11 @@ class Dashboard extends Component {
         {
           (logged !== "" && logged !== null) ? 
           (<TouchableHighlight style={styles.button} onPress={this.logout} underlayColor='midnightblue'>
-            <Text style={styles.welcome}>
+            <Text style={styles.dashText}>
               Logout
             </Text></TouchableHighlight>) : 
           (<TouchableHighlight style={styles.button} onPress={() => Actions.signUp()}  underlayColor='midnightblue'>
-            <Text style={styles.welcome}>
+            <Text style={styles.dashText}>
               SignUp
             </Text>
           </TouchableHighlight>)
@@ -81,31 +83,12 @@ class Dashboard extends Component {
         {
           (logged !== "" && logged !== null) ? 
           (<TouchableHighlight style={styles.button} onPress={() => Actions.listofuser()} >
-            <Text style={styles.welcome}>
+            <Text style={styles.dashText}>
               Users
             </Text>
           </TouchableHighlight>) : null
         }
-
-        
       </Image>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    width: undefined,
-    height: undefined,
-    backgroundColor:'transparent',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-    color: '#ffffff',
-  },
-});
-
-export default Dashboard;

@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
-import {StyleSheet,Text,Image,AsyncStorage, View, TouchableHighlight, 
+import {Text,Image,AsyncStorage, View, TouchableHighlight, 
 Modal, Button, StatusBar, Switch ,ToolbarAndroid} from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import EditProfile from './editProfile.js';
 import homeImage from '../img/./baseImage.jpg';
 import MyActivityIndicator from '../components/./activityIndicator.js';
 import ToolBarA from '../components/./toolBar.js';
+import styles from '../css/./style.js';
 
 var loggedprofile;
 
-class Profile extends Component {
+export default class Profile extends Component {
 
   constructor(props) {
     super(props);
@@ -37,7 +38,7 @@ class Profile extends Component {
 
   render(){
     return (
-      <Image source={homeImage} style={styles.container}>
+      <Image source={homeImage} style={styles.profileContainer}>
         <View>
           <ToolBarA/>
         </View>
@@ -57,17 +58,17 @@ class Profile extends Component {
             value={this.state.switchOn}>
           </Switch>
 
-          <Text style={styles.text}>
+          <Text style={styles.profileIntext}>
             First Name : - 
             {this.state.user.FirstName}
           </Text>
 
-          <Text style={styles.text}>
+          <Text style={styles.profileIntext}>
             Last Name : -
             {this.state.user.LastName}
           </Text>
 
-          <Text style={styles.text}>
+          <Text style={styles.profileIntext}>
             EmailID : -
             {this.state.user.EmailID}
           </Text>
@@ -75,7 +76,7 @@ class Profile extends Component {
           {
             (this.state.switchOn) 
             ? (<Button onPress={this.openModal} color="#008000"
-            title="Edit" style={styles.submit} ></Button>) 
+            title="Edit" style={styles.profileSubmit} ></Button>) 
             : null
           }
 
@@ -89,7 +90,7 @@ class Profile extends Component {
             onRequestClose = {() => {alert("Modal has been closed.")}}
             >
 
-            <View style={styles.modal}>
+            <View style={styles.profileModal}>
               <EditProfile />
               <Button
                 onPress={this.closeModal}
@@ -103,48 +104,3 @@ class Profile extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    width: undefined,
-    height: undefined,
-    backgroundColor:'transparent',
-  },
-  profileForm: {
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    marginTop: 50,
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-    color: 'grey',
-  },
-  text : {
-    marginTop : 20
-  },
-  submit: {
-    backgroundColor: 'silver',
-    padding: 10,
-    marginTop : 30,
-    marginRight: 80,
-    marginLeft: 80,
-  },
-  close : {
-    padding: 10,
-    marginTop : 30,
-    marginRight: 80,
-    marginLeft: 80,
-    borderRadius: 5,
-  },
-  modal: {
-    justifyContent: 'flex-start',
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#00bfff'
-  }
-});
-
-export default Profile;

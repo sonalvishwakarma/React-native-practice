@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
-import {StyleSheet,Text,Image, DatePickerAndroid,View, Alert} from 'react-native';
+import {Text,Image, DatePickerAndroid,View, Alert} from 'react-native';
 import HandleSignUp from './handleSignUp.js';
 import { Actions } from 'react-native-router-flux';
 import homeImage from '../img/./baseImage.jpg';
 import DatePicker from 'react-native-datepicker';
 import ToolBarA from '../components/./toolBar.js';
+import styles from '../css/./style.js';
 
 var userApi = 'https://api.myjson.com/bins/o4zz3';
 var users = [];
 
-class SignUp extends Component {
+export default class SignUp extends Component {
 
   constructor(props) {
     super(props);
@@ -56,7 +57,6 @@ class SignUp extends Component {
   }
 
   signUp = () => {
-
     if(this.state.fname !== '' && this.state.lname !== '' && this.state.email !== '' && this.state.password !== '' )
     {
       if(this.state.password === this.state.confirmPassword){
@@ -109,7 +109,7 @@ class SignUp extends Component {
 
   render(){
     return (
-      <Image source={homeImage} style={styles.container}>
+      <Image source={homeImage} style={styles.signUpContainer}>
        <View>
           <ToolBarA/>
         </View>
@@ -126,19 +126,3 @@ class SignUp extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    width: undefined,
-    height: undefined,
-    backgroundColor:'transparent',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-    color: 'grey',
-  }
-});
-
-export default SignUp;

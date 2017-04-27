@@ -5,7 +5,6 @@ export default class MyDatePicker extends Component {
 
 	constructor(props){
 		super(props);
-
 		this.state = {
 			date : '1990-01-01'
 		}

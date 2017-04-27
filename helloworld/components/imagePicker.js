@@ -1,14 +1,7 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  PixelRatio,
-  TouchableOpacity,
-  Image,
-} from 'react-native';
-
+import { Text,View,TouchableOpacity,Image} from 'react-native';
 import ImagePicker from 'react-native-image-picker';
+import styles from '../css/./style.js';
 
 export default class RNImagePicker extends React.Component {
 
@@ -34,7 +27,7 @@ export default class RNImagePicker extends React.Component {
       console.log('Response = ', response);
 
       if (response.didCancel) {
-        console.log('User cancelled photo picker');
+        console.log('User canceled photo picker');
       }
       else if (response.error) {
         console.log('ImagePicker Error: ', response.error);
@@ -85,12 +78,15 @@ export default class RNImagePicker extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View style={styles.imageContainer}>
+      
         <TouchableOpacity onPress={this.selectPhotoTapped.bind(this)}>
           <View style={[styles.avatar, styles.avatarContainer, {marginBottom: 20}]}>
+
           { this.state.avatarSource === null ? <Text>Select a Photo</Text> :
             <Image style={styles.avatar} source={this.state.avatarSource} />
           }
+
           </View>
         </TouchableOpacity>
 
@@ -103,28 +99,8 @@ export default class RNImagePicker extends React.Component {
         { this.state.videoSource &&
           <Text style={{margin: 8, textAlign: 'center'}}>{this.state.videoSource}</Text>
         }
+
       </View>
     );
   }
-
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF'
-  },
-  avatarContainer: {
-    borderColor: '#9B9B9B',
-    borderWidth: 1 / PixelRatio.get(),
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  avatar: {
-    borderRadius: 75,
-    width: 150,
-    height: 150
-  }
-});

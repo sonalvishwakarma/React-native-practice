@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import {StyleSheet,View,ListView,Alert, Image, StatusBar} from 'react-native';
+import {View,ListView,Alert, Image, StatusBar} from 'react-native';
 import HandleListOfUser from './handleListOfUser.js';
 import homeImage from '../img/./baseImage.jpg';
 import ToolBarA from '../components/./toolBar.js';
+import styles from '../css/./style.js';
 
 var userApi = 'https://api.myjson.com/bins/o4zz3';
 var userlist = [];
@@ -61,7 +62,7 @@ export default class ListOfUser extends Component {
 
 	render(){
 		return (
-      <Image source={homeImage} style={styles.container}>
+      <Image source={homeImage} style={styles.listOUserContainer}>
       	<View>
           <ToolBarA/>
         </View>
@@ -76,16 +77,3 @@ export default class ListOfUser extends Component {
 	}
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    width: undefined,
-    height: undefined,
-    backgroundColor:'transparent',
-  },
-  profileForm: {
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    marginTop: 50,
-  },
-});

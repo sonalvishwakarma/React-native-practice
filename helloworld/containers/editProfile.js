@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
-import {StyleSheet,Text,TextInput,Image,AsyncStorage, View, TouchableHighlight, 
+import {Text,TextInput,Image,AsyncStorage, View, TouchableHighlight, 
 Modal, Button, ScrollView, Alert} from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import MyDatePicker from '../components/./datePicker.js';
 import PickerDD from '../components/./pickerDropdown.js';
 import ProgressBarB from '../components/./progressBarAB.js';
+import styles from '../css/./style.js';
 
 var editLoggedProfile;
 var userApi = 'https://api.myjson.com/bins/o4zz3';
 var userInfo = [];
 var allUsers = [];
 var data;
-class EditProfile extends Component {
+
+export default class EditProfile extends Component {
 
   constructor(props) {
     super(props);
@@ -154,9 +156,9 @@ class EditProfile extends Component {
 
   render(){
     return (
-      <View style={styles.container}>
+      <View style={styles.editProfileContainer}>
         <View>
-        <Text style={styles.text}>Progress Bar </Text>
+        <Text style={styles.editProfileText}>Progress Bar </Text>
           <ProgressBarB  />
         </View>  
         <Text style={{fontSize: 20,textAlign: 'center',color: 'firebrick'}}>Edit Profile</Text>
@@ -164,7 +166,7 @@ class EditProfile extends Component {
         <ScrollView>
           <Text><Text style= {{color : 'firebrick'}}>*</Text>First Name</Text>
           <TextInput underlineColorAndroid='transparent' 
-            style = {styles.input} 
+            style = {styles.editProfileInput} 
             autoCapitalize = 'none' 
             value={this.state.fname}
             onChangeText={this.handleFirstName}
@@ -172,7 +174,7 @@ class EditProfile extends Component {
 
           <Text><Text style= {{color : 'firebrick'}}>*</Text>Last Name</Text>
           <TextInput underlineColorAndroid='transparent'
-            style = {styles.input}
+            style = {styles.editProfileInput}
             autoCapitalize = 'none'
             value={this.state.lname}
             onChangeText={this.handleLastName}
@@ -180,7 +182,7 @@ class EditProfile extends Component {
 
           <Text><Text style= {{color : 'firebrick'}}>*</Text>Email</Text>
           <TextInput underlineColorAndroid='transparent'
-            style = {styles.input}
+            style = {styles.editProfileInput}
             autoCapitalize = 'none'
             editable = {false}
             value={this.state.email}
@@ -189,7 +191,7 @@ class EditProfile extends Component {
 
           <Text><Text style= {{color : 'firebrick'}}>*</Text>Password</Text>
           <TextInput underlineColorAndroid='transparent'
-            style = {styles.input}
+            style = {styles.editProfileInput}
             autoCapitalize = 'none'
             editable = {false}
             value={this.state.password}
@@ -201,7 +203,7 @@ class EditProfile extends Component {
 
           <Text><Text style= {{color : 'firebrick'}}>*</Text>Contact No</Text>
           <TextInput underlineColorAndroid='transparent'
-            style = {styles.input}
+            style = {styles.editProfileInput}
             autoCapitalize = 'none'
             keyboardType = 'numeric'
             maxLength={10}
@@ -211,7 +213,7 @@ class EditProfile extends Component {
 
           <Text><Text style= {{color : 'firebrick'}}>*</Text>Address</Text>
           <TextInput underlineColorAndroid='transparent'
-            style = {styles.input}
+            style = {styles.editProfileInput}
             autoCapitalize = 'none'
             numberOfLines={2}
             value={this.state.address}
@@ -222,49 +224,10 @@ class EditProfile extends Component {
           <PickerDD/>
         </ScrollView> 
         
-        <TouchableHighlight style={styles.submit} onPress={this.updateProfile}>
+        <TouchableHighlight style={styles.editProfileSubmit} onPress={this.updateProfile}>
           <Text>Save</Text>     
         </TouchableHighlight>
       </View>  
     );         
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    width: undefined,
-    height: undefined,
-    backgroundColor:'transparent',
-    paddingTop:20,
-    marginTop: 20,
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-    color: 'grey',
-  },
-  input: {
-    margin: 15,
-    height: 40,
-    width: 250,
-    borderColor: 'grey',
-    borderWidth: 1,
-    color: 'black',
-  },
-  text : {
-    marginTop : 20
-  },
-  submit: {
-    backgroundColor: 'silver',
-    padding: 10,
-    marginTop : 30,
-    marginRight: 80,
-    marginLeft: 80,
-  },
-});
-
-export default EditProfile;

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import {Text, View} from 'react-native';
+import styles from '../css/./style.js';
 
 export default class GeoLocationInfo extends Component {
 
@@ -34,7 +35,7 @@ export default class GeoLocationInfo extends Component {
 
   render() {
     return (
-      <View style= {styles.container}>
+      <View style= {styles.geoContainer}>
         <Text > Location Info </Text>
         <Text>
           <Text >Initial position: </Text>
@@ -49,15 +50,3 @@ export default class GeoLocationInfo extends Component {
   }
 } 
 
-const styles = StyleSheet.create ({
-  container: {
-    flex: 1,
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    width: undefined,
-    height: undefined,
-    backgroundColor:'transparent',
-    paddingTop:30,
-    marginTop: 30,
-  }
-}); 

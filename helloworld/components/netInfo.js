@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {Text, View, StyleSheet, NetInfo} from 'react-native';
+import {Text, View, NetInfo} from 'react-native';
+import styles from '../css/./style.js';
 
 export default class InterNetInfo extends Component {
 
@@ -37,24 +38,12 @@ export default class InterNetInfo extends Component {
 
   render(){
     return (
-      <View style={styles.container}>
+      <View style={styles.netContainer}>
         <Text>Net Information</Text>
         <Text>Net Status -  {(this.state.isConnected )? 'online' : 'offline'}</Text>
-        <Text>Connectivity type -  {this.state.isConnected}</Text>
+        <Text>Connectivity type - {this.state.isConnected}</Text>
       </View>
     );
   }
 } 
-
-const styles = StyleSheet.create ({
-  container: {
-    flex: 1,
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    width: undefined,
-    height: undefined,
-    backgroundColor:'transparent',
-    paddingTop:30,
-    marginTop: 30,
-  }
-}); 
+ 

@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
-import {StyleSheet,Text,View,Image,TouchableHighlight,AsyncStorage, StatusBar} from 'react-native';
+import {Text,View,Image,TouchableHighlight,AsyncStorage, StatusBar} from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import homeImage from '../img/./homeImage.jpg';
 import MovingBar from '../components/./progressBar.js';
+import styles from '../css/./style.js';
 
 var logged;
 
-class Home extends Component {
+export default class Home extends Component {
 
   componentDidMount = () => {
     AsyncStorage.getItem('loggedUser').then((value) => {
       logged = value;
-      console.log(logged, 'dashoggeduser')
-      var bb = AsyncStorage.getItem('loggedUser')
-      console.log(bb,'bb')
       if(logged === null){
         Actions.home()
       }
@@ -25,7 +23,6 @@ class Home extends Component {
 
   render() {
     return (
-      
       <Image source={homeImage} style={styles.container}>
         <View >
           <StatusBar
@@ -57,25 +54,3 @@ class Home extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: undefined,
-    height: undefined,
-    backgroundColor:'transparent',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-    color: 'skyblue',
-    backgroundColor:'transparent',
-  },
-  button : {
-    borderWidth: 1,
-    borderColor: 'transparent'
-  }
-});
-export default Home;

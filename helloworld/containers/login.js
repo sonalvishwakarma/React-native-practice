@@ -4,11 +4,12 @@ import { Actions } from 'react-native-router-flux';
 import HandleLogin from './handleLogin.js';
 import homeImage from '../img/./baseImage.jpg';
 import ToolBarA from '../components/./toolBar.js';
+import styles from '../css/./style.js';
 
 var userApi = 'https://api.myjson.com/bins/o4zz3';
 var users = [];
 
-class Login extends Component {
+export default  class Login extends Component {
 
   constructor(props) {
     super(props);
@@ -56,14 +57,14 @@ class Login extends Component {
         }
       } 
     }
-    else if(this.state.email === '' && this.state.password === '' ){
+    else if(this.state.email === '' && this.state.password === ''){
       Alert.alert("Oops! You are not providing credentials, please enter email and password")
     }
   }
 
   render(){
     return (
-      <Image source={homeImage} style={styles.container} >
+      <Image source={homeImage} style={styles.loginContainer} >
         <View>
           <ToolBarA/>
         </View>
@@ -76,21 +77,3 @@ class Login extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    width: undefined,
-    height: undefined,
-    backgroundColor:'transparent',
-  },
-
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-    color: 'grey',
-  }
-});
-
-export default Login;

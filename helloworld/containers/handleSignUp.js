@@ -1,43 +1,44 @@
 import React, { Component } from 'react';
-import {StyleSheet,Text,TextInput,View,TouchableHighlight,TouchableWithoutFeedback} from 'react-native';
+import {Text,TextInput,View,TouchableHighlight,TouchableWithoutFeedback} from 'react-native';
+import styles from '../css/./style.js';
 
 export default HandleSignUp = (props) => {
 
   return (
     <View style={styles.signUpform}>       
       <TextInput underlineColorAndroid='transparent'
-        style = {styles.input}
+        style = {styles.signUpInput}
         placeholder = 'First Name'
         autoCapitalize = 'none'
         onChangeText = {props.handleFirstName}
       />
       <TextInput underlineColorAndroid='transparent'
-        style = {styles.input}
+        style = {styles.signUpInput}
         placeholder = 'Last Name'
         autoCapitalize = 'none'
         onChangeText = {props.handleLastName}
       />
       <TextInput underlineColorAndroid='transparent'
-        style = {styles.input}
+        style = {styles.signUpInput}
         placeholder = 'Email'
         autoCapitalize = 'none'
         onChangeText = {props.handleEmail}
       />
       <TextInput underlineColorAndroid='transparent' secureTextEntry={true}
-        style = {styles.input}
+        style = {styles.signUpInput}
         placeholder = 'Password'
         autoCapitalize = 'none'
         onChangeText = {props.handlePassword}
       />
       <TextInput underlineColorAndroid='transparent' secureTextEntry={true}
-        style = {styles.input}
+        style = {styles.signUpInput}
         placeholder = 'Confirm Password'
         autoCapitalize = 'none'
         onChangeText = {props.handleConfirmPassword}
       />
 
       <TouchableHighlight
-        style = {styles.submit}
+        style = {styles.signUpSubmit}
         onPress = { () => props.signUp(props.fname, props.lname, props.email, props.password, props.confirmPassword)}>
         <Text>
           Submit
@@ -46,31 +47,3 @@ export default HandleSignUp = (props) => {
     </View>  
   )
 }
-
-const styles = StyleSheet.create({
-  signUpform : {
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop : 50,
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-    color: '#ffffff',
-  },
-  input: {
-    margin: 15,
-    height: 40,
-    width: 250,
-    borderColor: 'royalblue',
-    borderWidth: 1,
-    color:'black'
-  },
-  submit: {
-    backgroundColor: 'royalblue',
-    padding: 10,
-    marginRight: 80,
-    marginLeft: 80,
-  }
-});
