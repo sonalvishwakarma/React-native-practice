@@ -12,10 +12,10 @@ export default class ProgressBarB extends Component {
   }
 
   //componentDidMount(){
-  //   setTimeout(()=>{
-  //     this.updateProgress()
-  //   }, 10)
-  // }
+  //  setTimeout(()=>{
+  //    this.updateProgress()
+  //  }, 10)
+  //}
 
   updateProgress = () => {
     var start = this.state.start + 0.125
@@ -25,9 +25,9 @@ export default class ProgressBarB extends Component {
     }    
   }
 
-  componentWillUnmount(){
-    clearTimeout(this.updateProgress)
-  }
+  //componentWillUnmount(){
+  //  clearTimeout(this.updateProgress)
+  //}
 
   render () {
     return (

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {StyleSheet, View, ProgressBarAndroid} from 'react-native';
+import {View, ProgressBarAndroid} from 'react-native';
+import styles from '../css/./style.js';
 
 export default class MovingBar extends Component{ 
 
@@ -26,15 +27,9 @@ export default class MovingBar extends Component{
 
   render () {
     return (
-      <View style={styles.widthc}>
+      <View style={styles.width300}>
         <ProgressBarAndroid progress={this.state.progress} {...this.props} />
       </View>  
     )
   }
 };
-
-const styles = StyleSheet.create({
-  widthc : {
-    width : 300
-  }
-})

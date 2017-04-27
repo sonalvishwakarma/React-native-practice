@@ -18,31 +18,30 @@ export default class Dashboard extends Component {
   }
   
   componentDidMount = () => {
+    this.getLoggeduser()
+
+      //if(logged !== null){
+      //  Actions.dashboard()
+      //}
+      //else{
+      //  Actions.home()
+     // }
+  }
+
+  getLoggeduser= () => {
     AsyncStorage.getItem('loggedUser').then((value) => {
-      logged = value;
-      console.log(value, 'getLoggeduser')
+      logged = JSON.parse(value);
+      console.log(value, 'getLoggeduserrr')
     });
   }
 
   logout = () => {
-    AsyncStorage.getItem('loggedUser').then((value) => {
-      logged = value;
-      console.log(logged, 'logged')
-      if(logged !== "" && logged !== null){
-        var aa =  AsyncStorage.removeItem('loggedUser')
-          Alert.alert(
-          'Bye bye',         
-          'Successfully logout')
-          console.log(aa, 'rmLoggeduser')
-        Actions.home()
-      }
-      else {
-        Alert.alert(
-        'Bye bye',         
-        'Successfully logout')
-        Actions.home()
-      }
-    });  
+    AsyncStorage.removeItem('loggedUser')
+      
+      Alert.alert(
+      'Bye bye',         
+      'Successfully logout')
+    Actions.home()
   }
 
   render() {
@@ -55,7 +54,7 @@ export default class Dashboard extends Component {
         <MyActivityIndicator/>
 
         {
-          (logged !== "" && logged !== null) ? 
+          (logged) ? 
           ( <TouchableHighlight style={styles.button} onPress={() => Actions.profile()} underlayColor='midnightblue'>
             <Text style={styles.dashText}>
               Profile
@@ -68,7 +67,7 @@ export default class Dashboard extends Component {
         }
 
         {
-          (logged !== "" && logged !== null) ? 
+          (logged) ? 
           (<TouchableHighlight style={styles.button} onPress={this.logout} underlayColor='midnightblue'>
             <Text style={styles.dashText}>
               Logout
@@ -81,7 +80,7 @@ export default class Dashboard extends Component {
         }
 
         {
-          (logged !== "" && logged !== null) ? 
+          (logged) ? 
           (<TouchableHighlight style={styles.button} onPress={() => Actions.listofuser()} >
             <Text style={styles.dashText}>
               Users

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {StyleSheet, View, Picker,Item} from 'react-native';
+import styles from '../css/./style.js';
 
-class PickerDD extends Component {
+export default class PickerDD extends Component {
 
 	constructor(props){
 		super(props);
@@ -12,13 +13,6 @@ class PickerDD extends Component {
 		};
 	}
 
-	//onValueChange = (ci) => {
-  //  this.setState({
- 	//   	city : ci
-  //  });
-	//}
-
-
  	onValueChange = (key: string, value: string) => {
     const newState = {};
     newState[key] = value;
@@ -28,7 +22,7 @@ class PickerDD extends Component {
 	render (){
 		return (
 			<View>
-			  <Picker style={styles.picker}
+			  <Picker style={styles.pickerDropDown}
 			  	selectedValue={this.state.selected}
 			  	onValueChange = {this.onValueChange.bind(this, 'selected')} 
 			  	mode="dropdown">	
@@ -41,11 +35,3 @@ class PickerDD extends Component {
 		)
 	}
 }
-
-const styles = StyleSheet.create({
-	picker : {
-		width  : 300,
-	},
-})
-
-export default PickerDD;

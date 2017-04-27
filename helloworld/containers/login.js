@@ -38,20 +38,20 @@ export default  class Login extends Component {
     });
   }
 
-
   login = () => {
 
     if(this.state.email !== '' && this.state.password !== '' )
     {
-      for (var val of users) {
+      for(var val of users) {
 
         if(this.state.email === val.EmailID && this.state.password === val.Password)
         {
-          AsyncStorage.setItem('loggedUser', JSON.stringify(val) );
+          AsyncStorage.setItem('loggedUser', JSON.stringify(val));
           this.setState({'loggedUser' : val})
+
           Alert.alert(
             'Welcome',
-            'Successfully logged in '
+            'Successfully logged in'
           )
           Actions.home()
         }
@@ -59,6 +59,9 @@ export default  class Login extends Component {
     }
     else if(this.state.email === '' && this.state.password === ''){
       Alert.alert("Oops! You are not providing credentials, please enter email and password")
+    }
+    else {
+      Alert.alert("Oops! You are not providing wrong credentials, please enter correct email and password")
     }
   }
 

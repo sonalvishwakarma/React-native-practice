@@ -10,7 +10,7 @@ var array = [
   { name : "Soniya"}
 ]
 
-class ListViewC extends Component {
+export default class ListViewC extends Component {
 	constructor(props){
 		super(props);
 
@@ -31,5 +31,3 @@ class ListViewC extends Component {
 		)
 	}
 }
-
-export default ListViewC;

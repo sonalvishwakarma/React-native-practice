@@ -17,7 +17,7 @@ import ListOfUser from './listOfUser.js';
 import ImageEditor from '../components/./imageEditor.js';
 import RNImagePicker from '../components/./imagePicker.js';
 
-class App extends Component {
+export default class App extends Component {
   render(){
     return (
       <Router>
@@ -43,5 +43,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;

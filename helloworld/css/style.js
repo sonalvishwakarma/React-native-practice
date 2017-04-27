@@ -2,7 +2,7 @@ import {StyleSheet, PixelRatio} from 'react-native';
 
 module.exports = StyleSheet.create ({
 
-/* home/Dashboardcomp css*/
+/* home/Dashboardcomp*/
 
   container: {
     flex: 1,
@@ -32,7 +32,7 @@ module.exports = StyleSheet.create ({
     padding: 8,
   },
 
-/*dashboard css*/
+/*dashboard*/
 
   dashboardContainer: {
     flex: 1,
@@ -47,7 +47,7 @@ module.exports = StyleSheet.create ({
     color: '#ffffff',
   },
 
-/*dashboard components css*/
+/*dashboard components*/
 
   dashCompContainer: {
     flex: 1,
@@ -73,7 +73,7 @@ module.exports = StyleSheet.create ({
     borderColor: 'transparent'
   },
 
-/*login css*/  
+/*login*/  
 
   loginContainer: {
     flex: 1,
@@ -107,7 +107,7 @@ module.exports = StyleSheet.create ({
     marginLeft: 80,
   },
 
-/*signUp css*/
+/*signUp*/
 
   signUpContainer: {
     flex: 1,
@@ -141,7 +141,7 @@ module.exports = StyleSheet.create ({
     marginLeft: 80,
   },
 
-/*profile css*/
+/*profile*/
 
   profileContainer: {
     flex: 1,
@@ -208,7 +208,7 @@ module.exports = StyleSheet.create ({
     marginLeft: 80,
   },
 
-/*UserList css*/  
+/*UserList*/  
 
   userListContainer: {
 	  paddingTop: 20,
@@ -241,7 +241,7 @@ module.exports = StyleSheet.create ({
     backgroundColor:'transparent',
   },
 
-/*camera css*/
+/*camera*/
    
   cameraContainer: {
     flex: 1,
@@ -272,7 +272,7 @@ module.exports = StyleSheet.create ({
     fontSize: 17,
   },
 
-/*geolocation css*/
+/*geolocation*/
 
   geoContainer: {
     flex: 1,
@@ -285,7 +285,7 @@ module.exports = StyleSheet.create ({
     marginTop: 30,
   },
 
-/*listview css*/
+/*listview*/
 
 	listContainer: {
 	  paddingTop:20,
@@ -302,7 +302,7 @@ module.exports = StyleSheet.create ({
 		width : 250
 	},
 
-/*mapview css*/
+/*mapview*/
 
   listContainer: {
 	  paddingTop:50
@@ -316,7 +316,7 @@ module.exports = StyleSheet.create ({
     flex : 1
 	},
 
-/*image css*/
+/*image*/
 
   imageContainer: {
     flex: 1,
@@ -336,7 +336,7 @@ module.exports = StyleSheet.create ({
     height: 150
   },
 
-/*netInfo css*/
+/*netInfo*/
 
   netContainer: {
     flex: 1,
@@ -347,6 +347,75 @@ module.exports = StyleSheet.create ({
     backgroundColor:'transparent',
     paddingTop:30,
     marginTop: 30,
+  },
+
+/*progress bar*/
+
+  width300 : {
+    width : 300
+  },
+
+/*slider*/
+
+  slider: {
+    height: 10,
+    margin: 10,
+    width : 25,
+  },
+  sliderText: {
+    fontSize: 14,
+    textAlign: 'center',
+    fontWeight: '500',
+    margin: 10,
+    marginTop : 10
+  },
+
+/*pickerDropDown*/
+
+  pickerDropDown : {
+    width  : 300,
+  },
+
+/*toolbar*/  
+
+  toolbar: {
+    backgroundColor: 'black',
+    height: 60,
+    marginTop : 49,
+  },
+
+/*pager*/
+
+  pagerButtons: {
+    flexDirection: 'row',
+    height: 30,
+    backgroundColor: 'black',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  pagerButton: {
+    flex: 1,
+    width: 0,
+    margin: 5,
+    borderColor: 'gray',
+    borderWidth: 1,
+    backgroundColor: 'gray',
+  },
+  pagerButtonText: {
+    color: 'white',
+  },
+  pagerContainer: {
+    flex: 1,
+    backgroundColor: 'white',
+  },
+  pagerImage: {
+    width: 300,
+    height: 200,
+    padding: 20,
+  },
+  viewPager: {
+    flex: 1,
   }
+
 }); 
 

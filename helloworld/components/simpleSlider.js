@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import {StyleSheet,Text,View, Slider} from 'react-native';
+import {Text,View, Slider} from 'react-native';
+import styles from '../css/./style.js';
 
 export default class SimpleSlider extends Component {
- 
 
   constructor(props){
-  super(props);
+    super(props);
     this.state = {
       value: this.props.value,
     };
@@ -15,11 +15,10 @@ export default class SimpleSlider extends Component {
     value: 0,
   };
 
-
   render() {
     return (
       <View>
-        <Text style={styles.text} >
+        <Text style={styles.sliderText} >
           {this.state.value && +this.state.value.toFixed(3)}
         </Text>
         <Slider
@@ -30,18 +29,3 @@ export default class SimpleSlider extends Component {
   }
 }
 
-var styles = StyleSheet.create({
-  slider: {
-    height: 10,
-    margin: 10,
-    width : 25,
-  },
-  text: {
-    fontSize: 14,
-    textAlign: 'center',
-    fontWeight: '500',
-    margin: 10,
-    marginTop : 10
-  },
-
-});

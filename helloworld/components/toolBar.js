@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
-import {StyleSheet,Text,View,ToolbarAndroid} from 'react-native';
+import {Text,View,ToolbarAndroid} from 'react-native';
 import homeIcon3 from '../img/./simplehouse.png';
 import { Actions } from 'react-native-router-flux';
+import styles from '../css/./style.js';
 
-class ToolBarA extends Component {
+export default class ToolBarA extends Component {
 
   //constructor(props){
-  //uper(props);
-    //this.state = {
-    //  actionText: 'ToolbarAndroid Example',
-    //};
+  //super(props);
+  //  this.state = {
+  //    actionText: 'ToolbarAndroid Example',
+  //  };
   //}
 
   render() {
@@ -37,17 +38,8 @@ class ToolBarA extends Component {
   //};
 }
 
-var toolbarActions = [
-  {title: 'profile'},
-  {title: 'display'},
-  {title: 'setting'}
-];
-
-var styles = StyleSheet.create({
-  toolbar: {
-    backgroundColor: 'black',
-    height: 60,
-    marginTop : 49,
-  },
-});
-export default ToolBarA;
+//var toolbarActions = [
+//  {title: 'profile'},
+//  {title: 'display'},
+//  {title: 'setting'}
+//];

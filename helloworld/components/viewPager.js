@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
-import { Image,
-  StyleSheet,
-  Text,
-  TouchableWithoutFeedback,
-  TouchableOpacity,
-  View,
-  ViewPagerAndroid,Button} from 'react-native';
+import { Image,Text,TouchableWithoutFeedback,TouchableOpacity,View,ViewPagerAndroid,Button} from 'react-native';
+import styles from '../css/./style.js';
 
 var PAGES = 5;
 var Images = [
@@ -84,36 +79,3 @@ export default class ViewPagerAndroidExample extends Component {
     );
   }
 }
-
-var styles = StyleSheet.create({
-  buttons: {
-    flexDirection: 'row',
-    height: 30,
-    backgroundColor: 'black',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  button: {
-    flex: 1,
-    width: 0,
-    margin: 5,
-    borderColor: 'gray',
-    borderWidth: 1,
-    backgroundColor: 'gray',
-  },
-  buttonText: {
-    color: 'white',
-  },
-  container: {
-    flex: 1,
-    backgroundColor: 'white',
-  },
-  image: {
-    width: 300,
-    height: 200,
-    padding: 20,
-  },
-  viewPager: {
-    flex: 1,
-  },
-});

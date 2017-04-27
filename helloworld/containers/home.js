@@ -9,22 +9,10 @@ var logged;
 
 export default class Home extends Component {
 
-  componentDidMount = () => {
-    AsyncStorage.getItem('loggedUser').then((value) => {
-      logged = value;
-      if(logged === null){
-        Actions.home()
-      }
-      else if(logged !== null){
-        Actions.dashboard()
-      }
-    });
-  }
-
   render() {
     return (
       <Image source={homeImage} style={styles.container}>
-        <View >
+        <View>
           <StatusBar
             backgroundColor = "#ff6347"
             barStyle = "light-content"
