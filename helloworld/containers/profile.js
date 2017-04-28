@@ -25,7 +25,6 @@ export default class Profile extends Component {
     AsyncStorage.getItem('loggedUser').then((value) => {
       loggedprofile = JSON.parse(value);
       this.setState({user : loggedprofile})
-      console.log(loggedprofile, 'loggedprofile')
     });
   } 
 

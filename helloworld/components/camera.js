@@ -15,7 +15,7 @@ export default class CameraRollPic extends Component {
   takePicture() {
     this.camera.capture()
     .then((data) => {
-      console.log(data);
+      //console.log(data);
       this.setState({ imagePath: data.path })
     })
     .catch(err => console.error(err));

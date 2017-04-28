@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {View,ListView,Alert, Image, StatusBar} from 'react-native';
+import {Actions} from 'react-native-router-flux';
 import HandleListOfUser from './handleListOfUser.js';
 import homeImage from '../img/./baseImage.jpg';
 import ToolBarA from '../components/./toolBar.js';
@@ -12,36 +13,37 @@ export default class ListOfUser extends Component {
 
 	constructor(props){
 		super(props);
-
-		fetch(userApi)
-	  .then( (response) => {
-	    return response.json()
-	  })   
-	  .then( (json) => {
-	  	userlist = json;
-	  	this.setState({
-	  		dataSource: ds.cloneWithRows(userlist)    
-	  	})
-	  })
-
-		const ds = new ListView.DataSource({
-			rowHasChanged : (r1,  r2) => alert('row has changed')
-		});
-
-		this.state = {
-		 	dataSource: ds.cloneWithRows(userlist)                                                                                                                              
-		};
+		this.getUser()
 	}
 
-	removeUser(){
+  getUser = () => {
+    fetch(userApi)
+    .then( (response) => {
+      return response.json()
+    })   
+    .then( (json) => {
+      userlist = json;
+      this.setState({
+        dataSource: ds.cloneWithRows(userlist)    
+      })
+    })
 
-    userlist.forEach(function(car, index){
+    const ds = new ListView.DataSource({
+      rowHasChanged : (r1,  r2) => alert('row has changed')
+    });
 
-      if(car.UserID ){
-       	var rmUser = userlist.slice(index,1);
+    this.state = {
+      dataSource: ds.cloneWithRows(userlist)                                                                                                                              
+    };
+  }
+
+	removeUser = (data) => {
+
+    userlist.forEach(function(usr, index){
+
+      if(usr.UserID == data.UserID){
+       	var rmUser = userlist.slice(index);
        	userlist.pop(rmUser);
-       	console.log(rmUser, 'rmUser')
-       	console.log(userlist, 'userlist')
        	fetch(userApi, {  
         	method: 'PUT',
         	headers: {
@@ -50,14 +52,15 @@ export default class ListOfUser extends Component {
         	},
         body: JSON.stringify(userlist)
       }).then(function(){
-      	console.log(userlist, 'deleted')
         	Alert.alert(
             'Done',
             'Successfully deleted user'
           )
-        }.bind(this));
+          Actions.profile()
+          Actions.listofuser()
+        });
       }
-    }.bind(this));
+    });
   }
 
 	render(){

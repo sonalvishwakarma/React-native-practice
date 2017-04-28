@@ -53,7 +53,7 @@ export default  class Login extends Component {
             'Welcome',
             'Successfully logged in'
           )
-          Actions.home()
+          Actions.dashboard()
         }
       } 
     }

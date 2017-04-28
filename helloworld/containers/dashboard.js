@@ -9,39 +9,35 @@ import GeoLocationInfo from '../components/./geoLocation.js';
 import ToolBarA from '../components/./toolBar.js';
 import styles from '../css/./style.js';
 
-var logged;
-
 export default class Dashboard extends Component {
 
   constructor(props){
     super(props);
+    this.state = {
+      logged : null || '' 
+    }
   }
   
   componentDidMount = () => {
-    this.getLoggeduser()
-
-      //if(logged !== null){
-      //  Actions.dashboard()
-      //}
-      //else{
-      //  Actions.home()
-     // }
-  }
-
-  getLoggeduser= () => {
     AsyncStorage.getItem('loggedUser').then((value) => {
-      logged = JSON.parse(value);
-      console.log(value, 'getLoggeduserrr')
+      var intialValue = value;
+      this.setState({
+        logged : intialValue
+      })
     });
   }
 
   logout = () => {
-    AsyncStorage.removeItem('loggedUser')
-      
-      Alert.alert(
+    AsyncStorage.removeItem('loggedUser').then((value) => {
+      var currentValue = JSON.parse(value);
+      this.setState({
+        logged  : currentValue
+      })
+    })  
+    Alert.alert(
       'Bye bye',         
       'Successfully logout')
-    Actions.home()
+    Actions.dashboard()
   }
 
   render() {
@@ -50,11 +46,9 @@ export default class Dashboard extends Component {
         <View>
           <ToolBarA/>
         </View>
-        
         <MyActivityIndicator/>
-
         {
-          (logged) ? 
+          (this.state.logged) ? 
           ( <TouchableHighlight style={styles.button} onPress={() => Actions.profile()} underlayColor='midnightblue'>
             <Text style={styles.dashText}>
               Profile
@@ -67,7 +61,16 @@ export default class Dashboard extends Component {
         }
 
         {
-          (logged) ? 
+          (this.state.logged ) ? 
+          (<TouchableHighlight style={styles.button} onPress={() => Actions.listofuser()} >
+            <Text style={styles.dashText}>
+              Users
+            </Text>
+          </TouchableHighlight>) : null
+        }
+
+        {
+          (this.state.logged ) ? 
           (<TouchableHighlight style={styles.button} onPress={this.logout} underlayColor='midnightblue'>
             <Text style={styles.dashText}>
               Logout
@@ -78,15 +81,7 @@ export default class Dashboard extends Component {
             </Text>
           </TouchableHighlight>)
         }
-
-        {
-          (logged) ? 
-          (<TouchableHighlight style={styles.button} onPress={() => Actions.listofuser()} >
-            <Text style={styles.dashText}>
-              Users
-            </Text>
-          </TouchableHighlight>) : null
-        }
+        
       </Image>
     );
   }

@@ -49,7 +49,7 @@
   # Download dependencies and check package.json: -
    
   # How to run 
-      - `Run command - `react-native start`
+       `Run command - `react-native start`
 
 4 . Resources
 ---------

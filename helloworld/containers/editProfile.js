@@ -40,8 +40,6 @@ export default class EditProfile extends Component {
       this.setState({password : editLoggedProfile.Password})
       this.setState({contactNo : editLoggedProfile.ContactNo})
       this.setState({address : editLoggedProfile.Address1})
-
-      console.log(editLoggedProfile, 'editLoggedProfile')
     });
 
     this.getUser();
@@ -81,7 +79,6 @@ export default class EditProfile extends Component {
         if(value.UserID === editLoggedProfile.UserID){
           userInfo.push(value)
           this.setState({users : userInfo})
-          console.log(this.state.users,'users')
         }
       })
     });
@@ -118,8 +115,6 @@ export default class EditProfile extends Component {
         "City": '',
         "zip": '',
       }
-      console.log(data, 'data')
-
       allUsers.push(data)
 
       fetch(userApi, {  
@@ -140,9 +135,8 @@ export default class EditProfile extends Component {
               'Successfully updated your profile'
             )
           Actions.profile()
-          console.log(json,'json')
-        }.bind(this))
-      }.bind(this));
+        })
+      });
     });
 
     }

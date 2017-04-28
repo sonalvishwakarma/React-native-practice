@@ -99,6 +99,7 @@ module.exports = StyleSheet.create ({
     borderColor: 'royalblue',
     borderWidth: 1,
     color: 'black',
+    borderRadius: 10,
   },
   loginSubmit: {
     backgroundColor: 'royalblue',
@@ -132,7 +133,8 @@ module.exports = StyleSheet.create ({
     width: 250,
     borderColor: 'royalblue',
     borderWidth: 1,
-    color:'black'
+    color:'black',
+    borderRadius: 10,
   },
   signUpSubmit: {
     backgroundColor: 'royalblue',
@@ -196,6 +198,7 @@ module.exports = StyleSheet.create ({
     borderColor: 'grey',
     borderWidth: 1,
     color: 'black',
+    borderRadius: 10,
   },
   editProfileText : {
     marginTop : 20
@@ -223,10 +226,13 @@ module.exports = StyleSheet.create ({
 	userCard: {
 	  backgroundColor: 'burlywood',
 	  width: (800 / 2) - 50,
-	  height: 100,
+	  height: 80,
 	  marginLeft: 10,
 	  marginTop: 10,
-  	marginBottom: 2
+  	marginBottom: 2,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 35,
 	},
 	bigblue: {
     color: 'blue',
@@ -234,7 +240,7 @@ module.exports = StyleSheet.create ({
   red: {
     color: 'green',
   },
-   listOUserContainer: {
+  listOUserContainer: {
     flex: 1,
     width: undefined,
     height: undefined,

@@ -52,7 +52,6 @@ export default class SignUp extends Component {
     })   
     .then( (json) => {
       users = json
-      console.log(users)
     });
   }
 
@@ -84,10 +83,10 @@ export default class SignUp extends Component {
         {
           return res.json()
           .then(function(json) {  
-            console.log(json,'json')
-          }.bind(this))
-        }.bind(this));
-        Actions.login()
+             Actions.login()
+          })
+        });
+       
         Alert.alert(
          'Welcome',
          'Successfully Sign in'
@@ -104,7 +103,6 @@ export default class SignUp extends Component {
         'Please enter details'
       )
     }
-    Actions.dashboard()
   }
 
   render(){
