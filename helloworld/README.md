@@ -3,8 +3,7 @@
 1 . `Project` Components/API with CRUD 
 --------
 
-2 . Installation
-------------
+2 . `Installation`
 
   ## nodejs
 		* sudo apt-get install -y build-essential
@@ -45,26 +44,26 @@
 3 .Look how easy it is to use:
 --------
 
-  # Get clone and download project stuff.
-  # Download dependencies and check package.json: -
+  ## Get clone and download project stuff.
+  ## Download dependencies and check package.json: -
    
-  # How to run 
-       `Run command - `react-native start`
+  ## How to run 
+       `Run command` - `react-native start`
 
 4 . Resources
 ---------
      
-  # API's
-  # Handling data with API's and AsyncStorage
+  ## API's
+  ## Handling data with API's and AsyncStorage
 
 5 .  Supported Language Features
 ----------
 
-    # This project supports a superset of the latest JavaScript standard.<br>
-    # In addition to [ES6] syntax features, it also supports:
+  ## This project supports a superset of the latest JavaScript standard.<br>
+  ## In addition to [ES6] syntax features, it also supports:
 
 6 . Contribute
 ----------
 
-  # Source Code: https://github.com/sonalvishwakarma/React-native-practice
+  ## Source Code: https://github.com/sonalvishwakarma/React-native-practice
 
