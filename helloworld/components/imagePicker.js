@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text,View,TouchableOpacity,Image} from 'react-native';
+import { Text,View,TouchableOpacity,Image,ToastAndroid} from 'react-native';
 import ImagePicker from 'react-native-image-picker';
 import styles from '../css/./style.js';
 
@@ -24,19 +24,15 @@ export default class RNImagePicker extends React.Component {
     };
 
     ImagePicker.showImagePicker(options, (response) => {
-      //console.log('Response = ', response);
-
       if (response.didCancel) {
-        //console.log('User canceled photo picker');
+        ToastAndroid.showWithGravity('Canceled photo picker', ToastAndroid.SHORT, ToastAndroid.CENTER)
       }
       else if (response.error) {
-        //console.log('ImagePicker Error: ', response.error);
-      }
-      else if (response.customButton) {
-        //console.log('User tapped custom button: ', response.customButton);
+        alert('ImagePicker Error: ', response.error);
       }
       else {
         let source = { uri: response.uri };
+        this.setState({
           avatarSource: source
         });
       }
@@ -52,16 +48,11 @@ export default class RNImagePicker extends React.Component {
     };
 
     ImagePicker.showImagePicker(options, (response) => {
-      console.log('Response = ', response);
-
       if (response.didCancel) {
-        //console.log('User cancelled video picker');
+        ToastAndroid.showWithGravity('Canceled video picker', ToastAndroid.SHORT, ToastAndroid.CENTER)
       }
       else if (response.error) {
-        //console.log('ImagePicker Error: ', response.error);
-      }
-      else if (response.customButton) {
-        //console.log('User tapped custom button: ', response.customButton);
+        alert('ImagePicker Error: ', response.error);
       }
       else {
         this.setState({

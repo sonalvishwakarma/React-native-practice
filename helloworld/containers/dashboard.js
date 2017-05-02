@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import {StyleSheet,Text,View, Image,TouchableHighlight,AsyncStorage, Alert} from 'react-native';
+import {Text,View,Image,TouchableHighlight,AsyncStorage, Alert} from 'react-native';
 import {Actions} from 'react-native-router-flux';
-import Profile from './profile.js';
 import homeImage from '../img/./baseImage.jpg';
 import MyActivityIndicator from '../components/./activityIndicator.js';
-import SimpleSlider from '../components/./simpleSlider.js';
-import GeoLocationInfo from '../components/./geoLocation.js';
 import ToolBarA from '../components/./toolBar.js';
 import styles from '../css/./style.js';
 
@@ -81,7 +78,6 @@ export default class Dashboard extends Component {
             </Text>
           </TouchableHighlight>)
         }
-        
       </Image>
     );
   }

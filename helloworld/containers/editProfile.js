@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import {Text,TextInput,Image,AsyncStorage, View, TouchableHighlight, 
-Modal, Button, ScrollView, Alert} from 'react-native';
+import {Text,TextInput,AsyncStorage, View, TouchableHighlight, Modal, ScrollView, Alert} from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import MyDatePicker from '../components/./datePicker.js';
 import PickerDD from '../components/./pickerDropdown.js';
@@ -89,56 +88,55 @@ export default class EditProfile extends Component {
 
     if(this.state.fname !== '' && this.state.lname !== '' && this.state.contactNo !== '' && this.state.address !== '' )
     {
-    fetch(userApi)
-    .then( (response) => {
-      return response.json()
-    })   
-    .then( (json) => {
-      allUsers = json;
-      userId = editLoggedProfile.UserID;
+      fetch(userApi)
+      .then( (response) => {
+        return response.json()
+      })   
+      .then( (json) => {
+        allUsers = json;
+        userId = editLoggedProfile.UserID;
 
-      allUsers.forEach(function(val, index) {
-        if(val.UserID === userId){
-          var oldData =  allUsers.slice(index) 
-          allUsers.pop(oldData);
-        }
-      })
-
-      data = {
-        "UserID" : editLoggedProfile.UserID,
-        "FirstName": this.state.fname,
-        "LastName": this.state.lname,
-        "EmailID": this.state.email,
-        "Password": this.state.password,
-        "ContactNo": this.state.contactNo || '',
-        "Address1": this.state.address || '',
-        "City": '',
-        "zip": '',
-      }
-      allUsers.push(data)
-
-      fetch(userApi, {  
-        method: 'PUT',
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(allUsers)
-        }).then(function(res)
-        {
-          return res.json()
-          .then(function(json) {  
-            AsyncStorage.setItem('loggedUser', JSON.stringify(data) );
-            this.setState({'loggedUser' : data})
-            Alert.alert(
-              'Done',
-              'Successfully updated your profile'
-            )
-          Actions.profile()
+        allUsers.forEach(function(val, index) {
+          if(val.UserID === userId){
+            var oldData =  allUsers.slice(index) 
+            allUsers.pop(oldData);
+          }
         })
-      });
-    });
 
+        data = {
+          "UserID" : editLoggedProfile.UserID,
+          "FirstName": this.state.fname,
+          "LastName": this.state.lname,
+          "EmailID": this.state.email,
+          "Password": this.state.password,
+          "ContactNo": this.state.contactNo || '',
+          "Address1": this.state.address || '',
+          "City": '',
+          "zip": '',
+        }
+        allUsers.push(data)
+
+        fetch(userApi, {  
+          method: 'PUT',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(allUsers)
+          }).then(function(res)
+          {
+            return res.json()
+            .then(function(json) {  
+              AsyncStorage.setItem('loggedUser', JSON.stringify(data) );
+              this.setState({'loggedUser' : data})
+              Alert.alert(
+                'Done',
+                'Successfully updated your profile'
+              )
+            Actions.profile()
+          })
+        });
+      });
     }
     else{
       Alert.alert(

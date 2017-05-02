@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Text,View,Image,TouchableHighlight,AsyncStorage, StatusBar} from 'react-native';
+import {Text,View,Image,TouchableHighlight, StatusBar} from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import homeImage from '../img/./homeImage.jpg';
 import MovingBar from '../components/./progressBar.js';

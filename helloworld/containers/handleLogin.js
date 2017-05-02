@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {Text,TextInput,View,TouchableHighlight} from 'react-native';
-import ToolBarA from '../components/./toolBar.js';
 import styles from '../css/./style.js';
 
 export default HandleLogin = (props) => {

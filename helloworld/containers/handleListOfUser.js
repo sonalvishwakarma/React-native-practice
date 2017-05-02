@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {View,ListView,ScrollView,TouchableHighlight,Text, Button} from 'react-native';
+import {View,ListView,ScrollView,TouchableHighlight,Text} from 'react-native';
 import styles from '../css/./style.js';
 
 export default HandleListOfUser  = (props) => {

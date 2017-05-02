@@ -11,12 +11,6 @@ export default class ProgressBarB extends Component {
     };
   }
 
-  //componentDidMount(){
-  //  setTimeout(()=>{
-  //    this.updateProgress()
-  //  }, 10)
-  //}
-
   updateProgress = () => {
     var start = this.state.start + 0.125
     this.setState({ start });
@@ -24,10 +18,6 @@ export default class ProgressBarB extends Component {
       requestAnimationFrame(() => this.updateProgress());
     }    
   }
-
-  //componentWillUnmount(){
-  //  clearTimeout(this.updateProgress)
-  //}
 
   render () {
     return (

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Text,Image, DatePickerAndroid,View, Alert} from 'react-native';
+import {Image,View, Alert} from 'react-native';
 import HandleSignUp from './handleSignUp.js';
 import { Actions } from 'react-native-router-flux';
 import homeImage from '../img/./baseImage.jpg';
@@ -59,7 +59,6 @@ export default class SignUp extends Component {
     if(this.state.fname !== '' && this.state.lname !== '' && this.state.email !== '' && this.state.password !== '' )
     {
       if(this.state.password === this.state.confirmPassword){
-
         users.push({
           "UserID":  users.length + 1,
           "FirstName": this.state.fname,

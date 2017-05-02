@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {StyleSheet,Text,View, Image,AsyncStorage, Alert} from 'react-native';
+import {View, Image,AsyncStorage, Alert} from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import HandleLogin from './handleLogin.js';
 import homeImage from '../img/./baseImage.jpg';

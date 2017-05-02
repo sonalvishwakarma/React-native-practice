@@ -12,8 +12,7 @@ export default class MovingBar extends Component{
   }
 
   componentDidMount = () => {
-    this.loadInterval = setInterval(
-      () => {
+    this.loadInterval = setInterval(() => {
         var progressC = (this.state.progress + 0.01) % 1 ;
         this.setState({progress: progressC})
       },100

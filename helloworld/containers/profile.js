@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import {Text,Image,AsyncStorage, View, TouchableHighlight, 
-Modal, Button, StatusBar, Switch ,ToolbarAndroid} from 'react-native';
+import {Text,Image,AsyncStorage, View, Modal, Button, StatusBar, Switch} from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import EditProfile from './editProfile.js';
 import homeImage from '../img/./baseImage.jpg';
-import MyActivityIndicator from '../components/./activityIndicator.js';
 import ToolBarA from '../components/./toolBar.js';
 import styles from '../css/./style.js';
 
@@ -71,16 +69,13 @@ export default class Profile extends Component {
             EmailID : -
             {this.state.user.EmailID}
           </Text>
-
           {
             (this.state.switchOn) 
             ? (<Button onPress={this.openModal} color="#008000"
             title="Edit" style={styles.profileSubmit} ></Button>) 
             : null
           }
-
         </View>
-        
         <View >
           <Modal 
             animationType = {"slide"}
@@ -88,7 +83,6 @@ export default class Profile extends Component {
             visible = {this.state.modalVisible}
             onRequestClose = {() => {alert("Modal has been closed.")}}
             >
-
             <View style={styles.profileModal}>
               <EditProfile />
               <Button
