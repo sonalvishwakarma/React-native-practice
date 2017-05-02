@@ -15,7 +15,6 @@ export default class CameraRollPic extends Component {
   takePicture() {
     this.camera.capture()
     .then((data) => {
-      //console.log(data);
       this.setState({ imagePath: data.path })
     })
     .catch(err => console.error(err));
@@ -29,6 +28,8 @@ export default class CameraRollPic extends Component {
         }}
         style={styles.preview}
         aspect={Camera.constants.Aspect.fill}
+        //Type = {Camera.constants.Type.back}
+        //CaptureMode = {Camera.constants.CaptureMode.still}
         captureTarget={Camera.constants.CaptureTarget.disk}>
       <TouchableHighlight
         style={styles.capture}

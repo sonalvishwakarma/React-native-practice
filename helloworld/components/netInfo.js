@@ -18,7 +18,7 @@ export default class InterNetInfo extends Component {
     )
     NetInfo.fetch().done( (isConnected) => {
       this.setState({isConnected}); 
-        console.log('Online with', isConnected) 
+        //console.log('Online with', isConnected) 
       }
     );
   }
@@ -28,11 +28,11 @@ export default class InterNetInfo extends Component {
       'change',
       this.handleConnectionInfoChange
     )
-    console.log("Offline")
+    //console.log("Offline")
   }
 
   handleConnectionInfoChange = (isConnected) => {
-    console.log(isConnected,'isConnected')
+    //console.log(isConnected,'isConnected')
     this.setState({isConnected})
   }
 

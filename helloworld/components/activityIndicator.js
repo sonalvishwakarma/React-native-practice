@@ -31,7 +31,6 @@ export default class MyActivityIndicator extends Component {
 		return (
 			<View style={styles.horizontal}>
 			  <ActivityIndicator animating = {this.state.animating}
-          size="large"
           color="#0000ff"
         />
 			</View>

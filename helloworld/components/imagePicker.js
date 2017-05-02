@@ -24,24 +24,19 @@ export default class RNImagePicker extends React.Component {
     };
 
     ImagePicker.showImagePicker(options, (response) => {
-      console.log('Response = ', response);
+      //console.log('Response = ', response);
 
       if (response.didCancel) {
-        console.log('User canceled photo picker');
+        //console.log('User canceled photo picker');
       }
       else if (response.error) {
-        console.log('ImagePicker Error: ', response.error);
+        //console.log('ImagePicker Error: ', response.error);
       }
       else if (response.customButton) {
-        console.log('User tapped custom button: ', response.customButton);
+        //console.log('User tapped custom button: ', response.customButton);
       }
       else {
         let source = { uri: response.uri };
-
-        // You can also display the image using data:
-        // let source = { uri: 'data:image/jpeg;base64,' + response.data };
-
-        this.setState({
           avatarSource: source
         });
       }
@@ -60,13 +55,13 @@ export default class RNImagePicker extends React.Component {
       console.log('Response = ', response);
 
       if (response.didCancel) {
-        console.log('User cancelled video picker');
+        //console.log('User cancelled video picker');
       }
       else if (response.error) {
-        console.log('ImagePicker Error: ', response.error);
+        //console.log('ImagePicker Error: ', response.error);
       }
       else if (response.customButton) {
-        console.log('User tapped custom button: ', response.customButton);
+        //console.log('User tapped custom button: ', response.customButton);
       }
       else {
         this.setState({
