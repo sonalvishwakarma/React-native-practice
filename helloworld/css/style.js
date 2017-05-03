@@ -2,7 +2,15 @@ import {StyleSheet, PixelRatio} from 'react-native';
 
 module.exports = StyleSheet.create ({
 
-/* home/Dashboardcomp*/
+/*index*/  
+
+  indexContainer: {
+    flex: 1,
+    alignItems: 'center',
+    backgroundColor: 'skyblue',
+  },
+
+/*home*/
 
   container: {
     flex: 1,

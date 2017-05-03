@@ -1,32 +1,15 @@
 import React, { Component } from 'react';
-import {AppRegistry,StyleSheet,Text,View} from 'react-native';
+import {AppRegistry,View} from 'react-native';
 import App from './containers/app.js';
+import styles from './css/./style.js';
 
 export default class helloworld extends Component {
   render() {
     return (
-      <View style={styles.container}>
+      <View style={styles.indexContainer}>
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    backgroundColor: 'skyblue',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
 
 AppRegistry.registerComponent('helloworld', () => App);

@@ -9,24 +9,12 @@
   "dependencies": {
     "install": "^0.8.8",
     "npm": "^4.4.4",
-    "prop-types": "^15.5.8",
     "react": "15.4.2",
     "react-native": "0.42.3",
     "react-native-camera": "git+https://github.com/lwansbrough/react-native-camera.git",
     "react-native-datepicker": "^1.4.6",
-    "react-native-fetch-blob": "^0.10.4",
-    "react-native-icons": "^0.7.1",
-    "react-native-image-crop": "^1.0.2",
     "react-native-image-picker": "^0.26.3",
-    "react-native-image-resizer": "^0.1.0",
-    "react-native-maps": "^0.14.0",
-    "react-native-router-flux": "^3.38.0",
-    "react-native-store": "^0.4.1",
-    "react-native-ui-xg": "0.0.3",
-    "react-redux": "^5.0.3",
-    "redux": "^3.6.0",
-    "redux-thunk": "^2.2.0",
-    "tcomb": "^3.2.20"
+    "react-native-router-flux": "^3.38.0"
   },
   "devDependencies": {
     "babel-jest": "19.0.0",
