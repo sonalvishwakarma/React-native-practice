@@ -127,7 +127,6 @@ android {
 }
 
 dependencies {
-    compile project(':react-native-image-resizer')
     compile project(':react-native-image-picker')
     compile project(':react-native-icons')
     compile project(':react-native-fetch-blob')

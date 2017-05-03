@@ -36,6 +36,13 @@ export default class Home extends Component {
             Dashboard-Components
           </Text>
         </TouchableHighlight>
+
+        <TouchableHighlight style={styles.button} onPress={() => Actions.chatbox()}  underlayColor='midnightblue'>
+          <Text style={styles.welcome}>
+            Chat Box
+          </Text>
+        </TouchableHighlight>
+
         </View>  
       </Image> 
     );

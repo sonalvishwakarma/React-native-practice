@@ -62,6 +62,12 @@ export default class DashboardComp extends Component {
             Image Picker
           </Text>
         </TouchableHighlight>
+
+        <TouchableHighlight style={styles.compButton} onPress = {() => Actions.tabsview()} underlayColor='midnightblue'>
+          <Text style={styles.compText}>
+            Tabs view
+          </Text>
+        </TouchableHighlight>
       </Image>
     );
   }
