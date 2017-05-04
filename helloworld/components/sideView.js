@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {View, Text,Image, Button} from 'react-native';
-import Menu from './menu.js';
+import Menu from './menuC.js';
 import SideMenu from 'react-native-side-menu';
 import styles from '../css/./style.js';
 
