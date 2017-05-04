@@ -429,6 +429,47 @@ module.exports = StyleSheet.create ({
   },
   viewPager: {
     flex: 1,
+  },
+
+/*SideMenu*/
+
+  menu: {
+    flex: 2,
+    width: window.width,
+    height: window.height,
+    backgroundColor: 'gray',
+    padding: 20,
+    marginTop : 150,
+    paddingTop : 150,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  menuButton: {
+    position: 'absolute',
+    top: 20,
+    padding: 10,
+  },
+  menuCaption: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    alignItems: 'center',
+  },
+  menuContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  menuWelcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  menuInstructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
   }
 
 }); 
