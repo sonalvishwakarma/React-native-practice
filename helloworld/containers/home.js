@@ -5,8 +5,6 @@ import homeImage from '../img/./homeImage.jpg';
 import MovingBar from '../components/./progressBar.js';
 import styles from '../css/./style.js';
 
-var logged;
-
 export default class Home extends Component {
 
   render() {

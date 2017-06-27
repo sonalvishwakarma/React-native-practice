@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { Text,View,TouchableOpacity,Image,ToastAndroid} from 'react-native';
 import ImagePicker from 'react-native-image-picker';
 import styles from '../css/./style.js';
 
-export default class RNImagePicker extends React.Component {
+export default class RNImagePicker extends Component {
 
   constructor(props){
     super(props)

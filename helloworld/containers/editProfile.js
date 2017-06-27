@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Text,TextInput,AsyncStorage, View, TouchableHighlight, Modal, ScrollView, Alert} from 'react-native';
+import _ from 'lodash';
 import { Actions } from 'react-native-router-flux';
 import MyDatePicker from '../components/./datePicker.js';
 import PickerDD from '../components/./pickerDropdown.js';
@@ -95,12 +96,12 @@ export default class EditProfile extends Component {
       .then( (json) => {
         allUsers = json;
         userId = editLoggedProfile.UserID;
+        console.log(userId,'userId')
 
-        allUsers.forEach(function(val, index) {
-          if(val.UserID === userId){
-            var oldData =  allUsers.slice(index) 
-            allUsers.pop(oldData);
-          }
+        allUsers.forEach(function(val) {
+          var evens = _.remove(allUsers, function(n) {
+            return n.UserID === userId;
+          });
         })
 
         data = {
@@ -127,8 +128,7 @@ export default class EditProfile extends Component {
           {
             return res.json()
             .then(function(json) {  
-              AsyncStorage.setItem('loggedUser', JSON.stringify(data) );
-              this.setState({'loggedUser' : data})
+              AsyncStorage.setItem('loggedUser', JSON.stringify(data))
               Alert.alert(
                 'Done',
                 'Successfully updated your profile'
@@ -141,7 +141,7 @@ export default class EditProfile extends Component {
     else{
       Alert.alert(
         'OOps!!',
-        'Not able to save your changes'  
+        'Not able to save your changes, Please fill all the required fields'  
       )
     }
   }

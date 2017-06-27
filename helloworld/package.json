@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "install": "^0.8.8",
+    "lodash": "file:node_modules/lodash",
     "npm": "^4.4.4",
     "react": "15.4.2",
     "react-native": "0.42.3",
