@@ -96,7 +96,6 @@ export default class EditProfile extends Component {
       .then( (json) => {
         allUsers = json;
         userId = editLoggedProfile.UserID;
-        console.log(userId,'userId')
 
         allUsers.forEach(function(val) {
           var evens = _.remove(allUsers, function(n) {
