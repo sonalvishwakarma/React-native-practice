@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image,Text,TouchableWithoutFeedback,TouchableOpacity,View,ViewPagerAndroid,Button} from 'react-native';
+import { Image,Text,View,ViewPagerAndroid,Button} from 'react-native';
 import styles from '../css/./style.js';
 
 var PAGES = 5;

@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import {Text,View,Image,TouchableHighlight,AsyncStorage, StatusBar} from 'react-native';
+import {Text,View,Image,TouchableHighlight, StatusBar} from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import homeImage from '../img/./homeImage.jpg';
 import MovingBar from '../components/./progressBar.js';
 import styles from '../css/./style.js';
-
-var logged;
 
 export default class Home extends Component {
 
@@ -36,6 +34,7 @@ export default class Home extends Component {
             Dashboard-Components
           </Text>
         </TouchableHighlight>
+
         </View>  
       </Image> 
     );

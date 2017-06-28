@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Text,TextInput,View,TouchableHighlight,TouchableWithoutFeedback} from 'react-native';
+import {Text,TextInput,View,TouchableHighlight} from 'react-native';
 import styles from '../css/./style.js';
 
 export default HandleSignUp = (props) => {

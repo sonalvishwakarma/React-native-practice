@@ -5,13 +5,10 @@ import { Actions } from 'react-native-router-flux';
 import styles from '../css/./style.js';
 
 export default class ToolBarA extends Component {
-
-  //constructor(props){
-  //super(props);
-  //  this.state = {
-  //    actionText: 'ToolbarAndroid Example',
-  //  };
-  //}
+  
+  onIconClicked = () => {
+    Actions.dashboard();
+  }
 
   render() {
     return (
@@ -26,20 +23,4 @@ export default class ToolBarA extends Component {
       </View>  
     );
   }
-
-  onIconClicked = () =>{
-    Actions.dashboard();
-  }
-
-  //_onActionSelected = (position) => {
-  //  this.setState({
-  //    actionText: 'Selected ' + toolbarActions[position].title,
-  //  });
-  //};
 }
-
-//var toolbarActions = [
-//  {title: 'profile'},
-//  {title: 'display'},
-//  {title: 'setting'}
-//];

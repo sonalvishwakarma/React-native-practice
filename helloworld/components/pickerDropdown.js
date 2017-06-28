@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import {StyleSheet, View, Picker,Item} from 'react-native';
+import {View, Picker,Item} from 'react-native';
 import styles from '../css/./style.js';
 
 export default class PickerDD extends Component {
 
 	constructor(props){
 		super(props);
-		
 		this.state = {
 			city : '',
 			selected  :'key0'

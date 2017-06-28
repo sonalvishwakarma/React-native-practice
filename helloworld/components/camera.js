@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {View,Dimensions,TouchableHighlight,Image,Text} from 'react-native';
+import {View,TouchableHighlight,Image,Text} from 'react-native';
 import Camera from 'react-native-camera';
 import styles from '../css/./style.js';
 
@@ -17,7 +17,7 @@ export default class CameraRollPic extends Component {
     .then((data) => {
       this.setState({ imagePath: data.path })
     })
-    .catch(err => console.error(err));
+    .catch(err => alert(err));
   }
 
   renderCamera() {
@@ -28,8 +28,6 @@ export default class CameraRollPic extends Component {
         }}
         style={styles.preview}
         aspect={Camera.constants.Aspect.fill}
-        //Type = {Camera.constants.Type.back}
-        //CaptureMode = {Camera.constants.CaptureMode.still}
         captureTarget={Camera.constants.CaptureTarget.disk}>
       <TouchableHighlight
         style={styles.capture}

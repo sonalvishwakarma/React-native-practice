@@ -15,6 +15,9 @@ import GeoLocationInfo from '../components/./geoLocation.js';
 import CameraRollPic from '../components/./camera.js';
 import ListOfUser from './listOfUser.js';
 import RNImagePicker from '../components/./imagePicker.js';
+import TabView from '../components/./tabsView.js';
+import SimpleTableView from '../components/./tableView.js';
+import SideViewExample from '../components/./sideView.js';
 
 export default class App extends Component {
   render(){
@@ -36,6 +39,9 @@ export default class App extends Component {
           <Scene key="camera" component={CameraRollPic} title="Camera Roll"/>
           <Scene key="listofuser" component={ListOfUser} title="List of User"/>
           <Scene key="imgPicker" component={RNImagePicker} title="Image Picker"/>
+          <Scene key="tabsview" component={TabView} title="Tab View"/>
+          <Scene key="tablev" component={SimpleTableView} title="Simple Table"/>
+          <Scene key="sideview" component={SideViewExample} title="Side View"/>
         </Scene>
       </Router>
     );

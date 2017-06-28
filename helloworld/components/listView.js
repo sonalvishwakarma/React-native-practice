@@ -3,11 +3,11 @@ import {View,ListView} from 'react-native';
 import HandleListView from './handleListView.js';
 
 var array = [
-  { name : "Soniya"},
+  { name : "Sonia"},
   { name : "Aarti"},
   { name : "Anshuska"},
-  { name : "Tammana"},
-  { name : "Soniya"}
+  { name : "Amman"},
+  { name : "Sonya"}
 ]
 
 export default class ListViewC extends Component {
